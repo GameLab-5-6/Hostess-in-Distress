@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
@@ -5,10 +6,17 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private Transform cam;
     [SerializeField] private float maxInteractDistance = 5f;
     private IInteractable currentInteractable;
+    
+    public static event Action OnInteractAllowed, OnInteractNull;
 
-    private void Awake()
+    private void OnEnable()
     {
         InputManager.onInteraction += HandleInteraction;
+    }
+
+    private void OnDisable()
+    {
+        InputManager.onInteraction -= HandleInteraction;
     }
 
     private void Update()
@@ -24,10 +32,12 @@ public class PlayerInteract : MonoBehaviour
             if (hit.collider.TryGetComponent(out IInteractable interactable))
             {
                 currentInteractable = interactable;
+                OnInteractAllowed?.Invoke();
                 return;
             }
         }
         currentInteractable = null;
+        OnInteractNull?.Invoke();
     }
 
     private void HandleInteraction()
