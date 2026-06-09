@@ -5,25 +5,26 @@ public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private Transform cam;
     [SerializeField] private float maxInteractDistance = 5f;
+    [SerializeField] private LayerMask interactLayer;
     private IInteractable currentInteractable;
     
     public static event Action OnInteractAllowed, OnInteractNull;
-
+    
     private void OnEnable()
     {
-        InputManager.onInteraction += HandleInteraction;
+        InputManager.OnInteraction += HandleInteraction;
     }
-
+    
     private void OnDisable()
     {
-        InputManager.onInteraction -= HandleInteraction;
+        InputManager.OnInteraction -= HandleInteraction;
     }
-
+    
     private void Update()
     {
         CheckForInteractables();
     }
-
+    
     private void CheckForInteractables()
     {
         Ray ray = new Ray(cam.position, cam.forward);
@@ -39,7 +40,7 @@ public class PlayerInteract : MonoBehaviour
         currentInteractable = null;
         OnInteractNull?.Invoke();
     }
-
+    
     private void HandleInteraction()
     {
         currentInteractable?.Interact();
