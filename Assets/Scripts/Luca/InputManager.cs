@@ -29,7 +29,12 @@ public static class InputManager
         direction = new Vector3(GetMovementVector.x, 0f, GetMovementVector.y);
         return direction != Vector3.zero;
     }
-    
+
+    public static float GetGrabDistance(out float distance)
+    {
+        return distance = inputs.Player.GrabDistance.ReadValue<float>();
+    }
+
     static void SwitchTo_UI()
     {
         inputs.Player.Disable();

@@ -11,8 +11,10 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
     [SerializeField] private float force = 50f;
     [SerializeField] private float maxSpeed = 10f;
     [SerializeField] private float damping = 5f;
-
     [SerializeField] private float rotationSpeed = 20f;
+    [SerializeField] private float distanceChangeAmount = 0.5f;
+    [SerializeField] private float maxDistance = 3f;
+    [SerializeField] private float minDistance = 1.5f;
 
     private void Awake()
     {
@@ -45,6 +47,11 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
 
     private void HandlePosition()
     {
+        InputManager.GetGrabDistance(out float distance);
+        
+        distanceOnInteract += distance * distanceChangeAmount;
+        distanceOnInteract = Mathf.Clamp(distanceOnInteract, minDistance, maxDistance);
+        
         Vector3 idealPoint = cam.position + cam.forward * distanceOnInteract;
         
         Vector3 direction = idealPoint - rb.position;
