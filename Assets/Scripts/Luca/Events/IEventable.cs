@@ -7,4 +7,6 @@ public interface IEventable
     void Solution();
 
     void Knockout();
+
+    bool IsActive();
 }

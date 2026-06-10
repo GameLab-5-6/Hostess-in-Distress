@@ -5,7 +5,7 @@ public static class InputManager
 {
     private static InputActions inputs;
 
-    public static event Action OnInteraction;
+    public static event Action OnInteraction, OnPunchCharge, OnPunchRelease;
     public static event Action OnPauseRequested, OnResumeRequested;
     public static Action OnPauseAllowed, OnResumeAllowed;
 
@@ -16,6 +16,8 @@ public static class InputManager
         SwitchTo_PlayerInput();
         
         inputs.Player.Interact.performed += _ => OnInteraction?.Invoke();
+        inputs.Player.Punch.performed += _ => OnPunchCharge?.Invoke();
+        inputs.Player.Punch.canceled += _ => OnPunchRelease?.Invoke();
         inputs.Player.Pause.performed += _ => OnPauseRequested?.Invoke();
         inputs.UI.Resume.performed += _ => OnResumeRequested?.Invoke();
         OnPauseAllowed += SwitchTo_UI;
