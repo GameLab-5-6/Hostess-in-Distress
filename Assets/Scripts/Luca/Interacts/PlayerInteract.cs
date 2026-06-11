@@ -4,6 +4,8 @@ public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private Transform cam;
     [SerializeField] private float maxInteractDistance = 5f;
+    [SerializeField] private LayerMask interactMask;
+    [SerializeField] private LayerMask eventMask;
     public IInteractable currentInteractable;
     public IEventable currentEventable;
     
@@ -46,7 +48,7 @@ public class PlayerInteract : MonoBehaviour
     private void CheckForInteractables()
     {
         Ray ray = new Ray(cam.position, cam.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, maxInteractDistance))
+        if (Physics.Raycast(ray, out RaycastHit hit, maxInteractDistance, interactMask))
         {
             if (hit.collider.TryGetComponent(out IInteractable interactable))
             {
@@ -67,15 +69,12 @@ public class PlayerInteract : MonoBehaviour
     {
         Ray ray = new Ray(cam.position, cam.forward);
         {
-            if (Physics.Raycast(ray, out RaycastHit hit, maxInteractDistance))
+            if (Physics.Raycast(ray, out RaycastHit hit, maxInteractDistance, eventMask))
             {
                 if (hit.collider.TryGetComponent(out IEventable eventable))
                 {
-                    if (eventable.IsActive())
-                    {
-                        currentEventable = eventable;
-                        return;
-                    }
+                    currentEventable = eventable;
+                    return;
                 }
             }
         }

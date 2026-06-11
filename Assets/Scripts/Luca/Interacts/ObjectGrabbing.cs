@@ -16,10 +16,22 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
     [SerializeField] private float maxDistance = 3f;
     [SerializeField] private float minDistance = 1.5f;
 
+    [Header("Immovable Grabbing")] 
+    [SerializeField] private bool isImmovable;
+
     private void Awake()
     {
         cam = Camera.main.transform;
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        if (isImmovable)
+        {
+            rb.constraints = RigidbodyConstraints.FreezePositionX;
+            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+        }
     }
 
     private void FixedUpdate()
@@ -47,11 +59,17 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
 
     private void HandlePosition()
     {
-        InputManager.GetGrabDistance(out float distance);
-        
-        distanceOnInteract += distance * distanceChangeAmount;
-        distanceOnInteract = Mathf.Clamp(distanceOnInteract, minDistance, maxDistance);
-        
+        if (!isImmovable)
+        {
+            InputManager.GetGrabDistance(out float distance);
+            distanceOnInteract += distance * distanceChangeAmount;
+            distanceOnInteract = Mathf.Clamp(distanceOnInteract, minDistance, maxDistance);
+        }
+        else
+        {
+            distanceOnInteract = minDistance;
+        }
+
         Vector3 idealPoint = cam.position + cam.forward * distanceOnInteract;
         
         Vector3 direction = idealPoint - rb.position;
@@ -66,6 +84,13 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
     {
         Quaternion targetRot = Quaternion.LookRotation(cam.forward, Vector3.up);
 
+        if (isImmovable)
+        {
+            targetRot = new Quaternion(0f, targetRot.y, 0f, targetRot.w);
+        }
+        
+        targetRot.Normalize();
+
         rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRot, Time.fixedDeltaTime * rotationSpeed));
     }
 
@@ -75,12 +100,24 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
         
         if (isInteracting)
         {
+            if (isImmovable)
+            {
+                rb.constraints = RigidbodyConstraints.None;
+                rb.constraints = RigidbodyConstraints.FreezePositionY;
+            }
+            
             rb.useGravity = false;
             rb.freezeRotation = true;
             distanceOnInteract = Vector3.Distance(transform.position, Camera.main.transform.position);
         }
         else
         {
+            if (isImmovable)
+            {
+                rb.constraints = RigidbodyConstraints.FreezePositionX;
+                rb.constraints = RigidbodyConstraints.FreezePositionZ;
+            }
+            
             rb.useGravity = true;
             rb.freezeRotation = false;
         }

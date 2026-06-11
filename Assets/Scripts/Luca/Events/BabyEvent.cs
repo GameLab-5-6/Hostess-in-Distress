@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class BabyEvent : MonoBehaviour, IEventable
 {
-    [SerializeField] private GameObject isActiveIndicator;
-    
+    private Outline outline;
     [SerializeField] private float timeBeforeReactivation;
     private float timer;
     
@@ -13,11 +12,17 @@ public class BabyEvent : MonoBehaviour, IEventable
     public static event Action<int> OnUpdateActiveEvents;
     public static event Action OnEventSolution, OnEventKnockout;
 
+    private void Awake()
+    {
+        outline = GetComponent<Outline>();
+    }
+    
     private void Start()
     {
         canActivate = false;
         isActive = false;
-        isActiveIndicator.SetActive(false);
+        outline.enabled = false;
+        gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
     private void Update()
@@ -39,28 +44,32 @@ public class BabyEvent : MonoBehaviour, IEventable
     
     public void Activate()
     {
-        isActiveIndicator.SetActive(true);
         canActivate = true;
         isActive = true;
+        outline.enabled = true;
+        gameObject.layer = LayerMask.NameToLayer("Eventable");
+        
         OnUpdateActiveEvents?.Invoke(1);
     }
 
     public void Solution()
     {
-        isActiveIndicator.SetActive(false);
         isActive = false;
+        outline.enabled = false;
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        
         OnUpdateActiveEvents?.Invoke(-1);
         OnEventSolution?.Invoke();
     }
 
     public void Knockout()
     {
-        isActiveIndicator.SetActive(false);
         canActivate = false;
         isActive = false;
+        outline.enabled = false;
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        
         OnUpdateActiveEvents?.Invoke(-1);
         OnEventKnockout?.Invoke();
     }
-
-    public bool IsActive() => isActive;
 }
