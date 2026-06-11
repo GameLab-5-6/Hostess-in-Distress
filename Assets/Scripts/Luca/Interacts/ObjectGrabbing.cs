@@ -16,6 +16,8 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
     [SerializeField] private float maxDistance = 3f;
     [SerializeField] private float minDistance = 1.5f;
 
+    public ObjectType objectType;
+
     [Header("Immovable Grabbing")] 
     [SerializeField] private bool isImmovable;
 

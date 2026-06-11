@@ -16,11 +16,14 @@ public class GameManager : MonoBehaviour
     {
         InputManager.OnPauseRequested += PauseGame;
         InputManager.OnResumeRequested += ResumeGame;
-
-        EventManager.OnBarsUpdated += UpdateBarsValues;
         
         //Event event actions
         BabyEvent.OnUpdateActiveEvents += UpdateActiveEvents;
+        BabyEvent.OnEventSolution += UpdateBarValues;
+        BabyEvent.OnEventKnockout += UpdateBarValues;
+        ChildEvent.OnUpdateActiveEvents += UpdateActiveEvents;
+        ChildEvent.OnEventSolution += UpdateBarValues;
+        ChildEvent.OnEventKnockout += UpdateBarValues;
     }
 
     private void OnDisable()
@@ -28,9 +31,12 @@ public class GameManager : MonoBehaviour
         InputManager.OnPauseRequested -= PauseGame;
         InputManager.OnResumeRequested -= ResumeGame;
         
-        EventManager.OnBarsUpdated -= UpdateBarsValues;
-        
         BabyEvent.OnUpdateActiveEvents -= UpdateActiveEvents;
+        BabyEvent.OnEventSolution -= UpdateBarValues;
+        BabyEvent.OnEventKnockout -= UpdateBarValues;
+        ChildEvent.OnUpdateActiveEvents -= UpdateActiveEvents;
+        ChildEvent.OnEventSolution -= UpdateBarValues;
+        ChildEvent.OnEventKnockout -= UpdateBarValues;
     }
 
     private void Start()
@@ -47,7 +53,7 @@ public class GameManager : MonoBehaviour
     
     private void UpdateActiveEvents(int amount) => activeEvents += amount;
 
-    private void UpdateBarsValues(float satisfaction, float sanity)
+    private void UpdateBarValues(float satisfaction, float sanity)
     {
         currentSatisfaction += satisfaction;
         if (currentSatisfaction > maxSatisfaction)

@@ -1,15 +1,12 @@
 using System;
 using UnityEngine;
 
-public class BabyEvent : MonoBehaviour, IEventable
+public class ChildEvent : MonoBehaviour, IEventable
 {
     private Outline outline;
     
     [SerializeField] private float timeBeforeReactivation;
     private float timer;
-    [SerializeField] private Transform overlapPosition;
-    [SerializeField] private float overlapArea;
-    [SerializeField] private LayerMask interactMask;
     
     [Header("Solution")]
     [SerializeField] private float solSatisfactionGained;
@@ -51,25 +48,6 @@ public class BabyEvent : MonoBehaviour, IEventable
                 timer = 0f;
             }
         }
-
-        if (isActive)
-        {
-            Collider[] readInteractable = Physics.OverlapSphere(overlapPosition.position, overlapArea, interactMask);
-
-            if (readInteractable.Length <= 0)
-                return;
-
-            foreach (Collider col in readInteractable)
-            {
-                if (col.TryGetComponent(out ObjectGrabbing obj))
-                {
-                    if (obj.objectType == ObjectType.Toy)
-                    {
-                        SolutionWithObject();
-                    }
-                }
-            }
-        }
     }
     
     public void Activate()
@@ -83,11 +61,6 @@ public class BabyEvent : MonoBehaviour, IEventable
     }
 
     public void Solution()
-    {
-        //since an object reading is needed this solution will do nothing, however it is possible to give UI directions with it
-    }
-
-    private void SolutionWithObject()
     {
         isActive = false;
         outline.enabled = false;
@@ -106,11 +79,5 @@ public class BabyEvent : MonoBehaviour, IEventable
         
         OnUpdateActiveEvents?.Invoke(-1);
         OnEventKnockout?.Invoke(koSatisfactionChange, koSanityChange);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(overlapPosition.position, overlapArea);
     }
 }

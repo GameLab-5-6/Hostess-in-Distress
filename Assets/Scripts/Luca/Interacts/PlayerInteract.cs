@@ -1,5 +1,11 @@
 using UnityEngine;
 
+public enum ObjectType
+{
+    Default,
+    Toy
+}
+
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private Transform cam;
