@@ -16,9 +16,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (InputManager.IsMoving(out Vector3 direction))
         {
+            //moves the player relative to camera look direction
             Vector3 camDirection = cam.forward * direction.z + cam.right * direction.x;
-            Vector3 movement = camDirection.normalized * (speed * Time.fixedDeltaTime);
-            rb.MovePosition(rb.position + movement);
+            //taking out the y-axis so it doesn't fly
+            camDirection.y = 0f;
+            camDirection.Normalize();
+            
+            //calculates the velocity of player
+            Vector3 velocity = camDirection * (speed * Time.fixedDeltaTime);
+            velocity.y = rb.linearVelocity.y;
+            rb.linearVelocity = velocity;
+        }
+        else
+        {
+            //removes sliding when moving
+            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
         }
     }
 }
