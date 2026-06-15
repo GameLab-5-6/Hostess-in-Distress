@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class BabyEvent : EventParent
+public class BabyEvent : EventBase
 {
     [SerializeField] private Transform overlapPosition;
-    [SerializeField] private float overlapArea;
+    public float overlapArea;
     [SerializeField] private LayerMask interactMask;
 
     protected override void Awake()
@@ -34,6 +34,7 @@ public class BabyEvent : EventParent
                     if (obj.objectType == ObjectType.Toy)
                     {
                         SolutionWithObject();
+                        obj.gameObject.SetActive(false);
                     }
                 }
             }

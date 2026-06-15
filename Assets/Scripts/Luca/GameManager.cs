@@ -18,12 +18,9 @@ public class GameManager : MonoBehaviour
         InputManager.OnResumeRequested += ResumeGame;
         
         //Event event actions
-        BabyEvent.OnUpdateActiveEvents += UpdateActiveEvents;
-        BabyEvent.OnEventSolution += UpdateBarValues;
-        BabyEvent.OnEventKnockout += UpdateBarValues;
-        ChildEvent.OnUpdateActiveEvents += UpdateActiveEvents;
-        ChildEvent.OnEventSolution += UpdateBarValues;
-        ChildEvent.OnEventKnockout += UpdateBarValues;
+        EventBase.OnUpdateActiveEvents += UpdateActiveEvents;
+        EventBase.OnEventSolution += UpdateBarValues;
+        EventBase.OnEventKnockout += UpdateBarValues;
     }
 
     private void OnDisable()
@@ -31,12 +28,9 @@ public class GameManager : MonoBehaviour
         InputManager.OnPauseRequested -= PauseGame;
         InputManager.OnResumeRequested -= ResumeGame;
         
-        BabyEvent.OnUpdateActiveEvents -= UpdateActiveEvents;
-        BabyEvent.OnEventSolution -= UpdateBarValues;
-        BabyEvent.OnEventKnockout -= UpdateBarValues;
-        ChildEvent.OnUpdateActiveEvents -= UpdateActiveEvents;
-        ChildEvent.OnEventSolution -= UpdateBarValues;
-        ChildEvent.OnEventKnockout -= UpdateBarValues;
+        EventBase.OnUpdateActiveEvents -= UpdateActiveEvents;
+        EventBase.OnEventSolution -= UpdateBarValues;
+        EventBase.OnEventKnockout -= UpdateBarValues;
     }
 
     private void Start()

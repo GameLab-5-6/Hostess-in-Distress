@@ -130,15 +130,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyEvent
   timeBeforeReactivation: 10
+  solSatisfactionChange: 20
+  solSanityChange: 5
+  koSatisfactionChange: -10
+  koSanityChange: 20
   overlapPosition: {fileID: 8633353072918986647}
   overlapArea: 0.5
   interactMask:
     serializedVersion: 2
     m_Bits: 128
-  solSatisfactionGained: 20
-  solSanityChange: 5
-  koSatisfactionChange: -10
-  koSanityChange: 20
 --- !u!114 &8608071329036595747
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-public class ChildEvent : EventParent
+public class ChildEvent : EventBase
 {
     protected override void Awake()
     {

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class ObjectGrabbing : MonoBehaviour, IInteractable
 {
-    private Rigidbody rb;
+    [HideInInspector] public Rigidbody rb;
     private Transform cam;
     
-    private bool isInteracting;
+    [SerializeField] private bool isInteracting;
     
     private float distanceOnInteract;
     [SerializeField] private float force = 50f;
@@ -15,24 +15,47 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
     [SerializeField] private float distanceChangeAmount = 0.5f;
     [SerializeField] private float maxDistance = 3f;
     [SerializeField] private float minDistance = 1.5f;
-
+    
     public ObjectType objectType;
 
-    [Header("Immovable Grabbing")] 
-    [SerializeField] private bool isImmovable;
+    [Header("Phone Grab")] 
+    [SerializeField] private int interactTimesToGrab;
+    private int interactedTimes;
+    [SerializeField] private float decayRate;
+    private float decayTimer;
+    [HideInInspector] public bool isInEvent = false;
 
     private void Awake()
     {
         cam = Camera.main.transform;
         rb = GetComponent<Rigidbody>();
     }
-
+    
     private void Start()
     {
-        if (isImmovable)
+        if (objectType == ObjectType.Cart)
         {
-            rb.constraints = RigidbodyConstraints.FreezePositionX;
-            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+        }
+        else if (objectType == ObjectType.Phone)
+        {
+            rb.useGravity = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (objectType != ObjectType.Phone)
+            return;
+        
+        decayTimer += Time.deltaTime;
+
+        if (decayTimer >= decayRate)
+        {
+            decayTimer = 0f;
+            if (interactedTimes <= 0)
+                return;
+            interactedTimes--;
         }
     }
 
@@ -61,7 +84,7 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
 
     private void HandlePosition()
     {
-        if (!isImmovable)
+        if (objectType != ObjectType.Cart)
         {
             InputManager.GetGrabDistance(out float distance);
             distanceOnInteract += distance * distanceChangeAmount;
@@ -86,7 +109,7 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
     {
         Quaternion targetRot = Quaternion.LookRotation(cam.forward, Vector3.up);
 
-        if (isImmovable)
+        if (objectType == ObjectType.Cart)
         {
             targetRot = new Quaternion(0f, targetRot.y, 0f, targetRot.w);
         }
@@ -98,30 +121,42 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        isInteracting = !isInteracting;
-        
-        if (isInteracting)
+        if (objectType != ObjectType.Phone || !isInEvent)
         {
-            if (isImmovable)
-            {
-                rb.constraints = RigidbodyConstraints.None;
-                rb.constraints = RigidbodyConstraints.FreezePositionY;
-            }
+            isInteracting = !isInteracting;
             
-            rb.useGravity = false;
-            rb.freezeRotation = true;
-            distanceOnInteract = Vector3.Distance(transform.position, Camera.main.transform.position);
+            if (isInteracting)
+            {
+                if (objectType == ObjectType.Cart)
+                {
+                    rb.constraints = RigidbodyConstraints.FreezePositionY;
+                }
+            
+                rb.useGravity = false;
+                rb.freezeRotation = true;
+                distanceOnInteract = Vector3.Distance(transform.position, Camera.main.transform.position);
+            }
+            else
+            {
+                if (objectType == ObjectType.Cart)
+                {
+                    rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+                }
+            
+                rb.useGravity = true;
+                rb.freezeRotation = false;
+            }
         }
         else
         {
-            if (isImmovable)
+            interactedTimes++;
+
+            if (interactedTimes >= interactTimesToGrab)
             {
-                rb.constraints = RigidbodyConstraints.FreezePositionX;
-                rb.constraints = RigidbodyConstraints.FreezePositionZ;
+                isInteracting = true;
+                rb.useGravity = true;
+                isInEvent = false;
             }
-            
-            rb.useGravity = true;
-            rb.freezeRotation = false;
         }
     }
 }

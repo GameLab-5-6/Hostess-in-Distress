@@ -1,19 +1,19 @@
 using System;
 using UnityEngine;
 
-public abstract class EventParent : MonoBehaviour, IEventable
+public abstract class EventBase : MonoBehaviour, IEventable
 {
     protected Outline outline;
     
-    [SerializeField] protected float timeBeforeReactivation;
+    public float timeBeforeReactivation;
     protected float timer;
     
     [Header("Solution")]
-    [SerializeField] protected float solSatisfactionGained;
-    [SerializeField] protected float solSanityChange;
+    public float solSatisfactionChange;
+    public float solSanityChange;
     [Header("Knockout")]
-    [SerializeField] protected float koSatisfactionChange;
-    [SerializeField] protected float koSanityChange;
+    public float koSatisfactionChange;
+    public float koSanityChange;
     
     protected bool canActivate, isActive;
 
@@ -67,7 +67,7 @@ public abstract class EventParent : MonoBehaviour, IEventable
         gameObject.layer = LayerMask.NameToLayer("Default");
         
         OnUpdateActiveEvents?.Invoke(-1);
-        OnEventSolution?.Invoke(solSatisfactionGained, solSanityChange);
+        OnEventSolution?.Invoke(solSatisfactionChange, solSanityChange);
     }
 
     public virtual void Knockout()

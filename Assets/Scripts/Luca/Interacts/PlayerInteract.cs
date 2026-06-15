@@ -3,7 +3,11 @@ using UnityEngine;
 public enum ObjectType
 {
     Default,
-    Toy
+    Toy,
+    Drink1,
+    Drink2,
+    Phone,
+    Cart
 }
 
 public class PlayerInteract : MonoBehaviour
