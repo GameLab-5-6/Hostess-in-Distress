@@ -300,7 +300,7 @@ MonoBehaviour:
   distanceChangeAmount: 0.5
   maxDistance: 3
   minDistance: 1.5
-  objectType: 0
+  objectType: 5
   interactTimesToGrab: 0
   decayRate: 0
   isInEvent: 0
