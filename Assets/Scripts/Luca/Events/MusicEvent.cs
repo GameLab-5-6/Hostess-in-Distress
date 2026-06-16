@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 
 public class MusicEvent : EventBase
 {
-    [SerializeField] private GameObject phonePrefab;
+    public GameObject phonePrefab;
     private bool hasPhone;
     
     [SerializeField] private Transform overlapPosition;
@@ -59,7 +58,7 @@ public class MusicEvent : EventBase
         if (phonePrefab.TryGetComponent<ObjectGrabbing>(out ObjectGrabbing obj))
         {
             obj.isInEvent = true;
-            obj.rb.useGravity = false;
+            obj.rb.constraints = RigidbodyConstraints.FreezePosition;
         }
         hasPhone = true;
         
@@ -79,6 +78,7 @@ public class MusicEvent : EventBase
     public override void Knockout()
     {
         base.Knockout();
+        phonePrefab.SetActive(false);
     }
     
     private void OnDrawGizmos()

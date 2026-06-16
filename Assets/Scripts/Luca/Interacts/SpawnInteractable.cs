@@ -8,6 +8,12 @@ public class SpawnInteractable : MonoBehaviour, IInteractable
     [SerializeField] private int poolSize = 3;
     [SerializeField] private float spawnOffset = 0.25f;
 
+    [Header("Drinks")]
+    [SerializeField] private bool isDrink;
+    [SerializeField] private float drinkDistance;
+    [SerializeField] private LayerMask eventMask;
+    private bool allowInteract;
+
     private InteractablePooler<ObjectGrabbing> interactablePooler;
     
     private void Awake()
@@ -17,8 +23,36 @@ public class SpawnInteractable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (isDrink)
+        {
+            allowInteract = false;
+            
+            Collider[] colliders = Physics.OverlapSphere(transform.position, drinkDistance, eventMask);
+            
+            foreach (Collider col in colliders)
+            {
+                if (col.TryGetComponent<DrinkEvent>(out DrinkEvent drinkEvent))
+                {
+                    if (drinkEvent.isActive)
+                        allowInteract = true;
+                }
+            }
+        }
+
+        if (!allowInteract && isDrink)
+            return;
+        
         Vector3 offsetPos = new Vector3(transform.position.x, transform.position.y + spawnOffset, transform.position.z);
         interactablePooler.GetFromPool(offsetPos, Quaternion.identity);
+    }
+    
+    private void OnDrawGizmos()
+    {
+        if (!isDrink)
+            return;
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, drinkDistance);
     }
 }
 

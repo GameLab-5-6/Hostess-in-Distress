@@ -154,7 +154,7 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
             if (interactedTimes >= interactTimesToGrab)
             {
                 isInteracting = true;
-                rb.useGravity = true;
+                rb.constraints = RigidbodyConstraints.None;
                 isInEvent = false;
             }
         }

@@ -131,6 +131,11 @@ MonoBehaviour:
   interactableParent: {fileID: 0}
   poolSize: 3
   spawnOffset: 0.25
+  isDrink: 1
+  drinkDistance: 3.5
+  eventMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &6315974672906668861
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019e0e1ebc06198418f06146a84b69be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectGrabbing
+  rb: {fileID: 0}
   isInteracting: 0
   force: 50
   maxSpeed: 10
@@ -294,9 +300,10 @@ MonoBehaviour:
   distanceChangeAmount: 0.5
   maxDistance: 3
   minDistance: 1.5
-  rotationDelay: 0.1
   objectType: 0
-  isImmovable: 1
+  interactTimesToGrab: 0
+  decayRate: 0
+  isInEvent: 0
 --- !u!1 &7621014478321226878
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,3 +435,8 @@ MonoBehaviour:
   interactableParent: {fileID: 0}
   poolSize: 3
   spawnOffset: 0.25
+  isDrink: 1
+  drinkDistance: 3.5
+  eventMask:
+    serializedVersion: 2
+    m_Bits: 64

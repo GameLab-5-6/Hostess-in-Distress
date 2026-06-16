@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Outline))]
 public abstract class EventBase : MonoBehaviour, IEventable
 {
     protected Outline outline;
@@ -15,7 +16,8 @@ public abstract class EventBase : MonoBehaviour, IEventable
     public float koSatisfactionChange;
     public float koSanityChange;
     
-    protected bool canActivate, isActive;
+    protected bool canActivate;
+    public bool isActive;
 
     public static event Action<int> OnUpdateActiveEvents;
     public static event Action<float, float> OnEventSolution, OnEventKnockout;
