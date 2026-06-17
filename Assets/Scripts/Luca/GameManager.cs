@@ -10,6 +10,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float drainRate = 0.25f;
     [SerializeField] private int activeEvents = 0;
 
+    [Header("Game Settings")] 
+    [SerializeField] private float totalGameTime = 300f;
+    private float timer;
+
+    [Header("temporary variables")] 
+    [SerializeField] private GameObject winHue;
+    [SerializeField] private GameObject loseHue;
+
     public static event Action OnPause, OnResume;
     
     private void OnEnable()
@@ -35,6 +43,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        winHue.SetActive(false);
+        loseHue.SetActive(false);
+        
         activeEvents = 0;
         currentSanity = maxSanity;
         currentSatisfaction = maxSatisfaction;
@@ -42,6 +53,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        GameTime();
+        StatusCheck();
+        
         currentSanity -= Time.deltaTime * drainRate * activeEvents;
     }
     
@@ -56,6 +70,34 @@ public class GameManager : MonoBehaviour
         currentSanity += sanity;
         if (currentSanity > maxSanity)
             currentSanity = maxSanity;
+    }
+
+    private void GameTime()
+    {
+        timer += Time.deltaTime;
+
+        if (timer >= totalGameTime)
+        {
+            WinGame();
+        }
+    }
+
+    private void WinGame()
+    {
+        winHue.SetActive(true);
+    }
+
+    private void StatusCheck()
+    {
+        if (currentSanity <= 0f || currentSatisfaction <= 0f)
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        loseHue.SetActive(true);
     }
     
     private void PauseGame()
