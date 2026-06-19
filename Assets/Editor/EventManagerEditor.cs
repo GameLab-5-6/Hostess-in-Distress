@@ -18,6 +18,17 @@ public class EventManagerEditor : Editor
 
         if (GUILayout.Button("Override All"))
         {
+            LuggageEvent[]  luggageEvents = FindObjectsByType<LuggageEvent>(FindObjectsSortMode.None);
+
+            foreach (LuggageEvent luggage in luggageEvents)
+            {
+                luggage.overlapRadius = eventManager.luggageOverlapRadius;
+                if (luggage.onOppositeSide)
+                    luggage.moveToAmount = -eventManager.luggageMoveToAmount;
+                else
+                    luggage.moveToAmount = eventManager.luggageMoveToAmount;
+            }
+            
             BabyEvent[] babyEvents = FindObjectsByType<BabyEvent>(FindObjectsSortMode.None);
 
             foreach (BabyEvent baby in babyEvents)

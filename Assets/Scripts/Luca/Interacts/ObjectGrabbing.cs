@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class ObjectGrabbing : MonoBehaviour, IInteractable
 {
+    public ObjectType objectType;
     [HideInInspector] public Rigidbody rb;
     private Transform cam;
     
-    [SerializeField] private bool isInteracting;
+    public bool isInteracting;
     
     private float distanceOnInteract;
     [SerializeField] private float force = 50f;
@@ -16,8 +17,6 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
     [SerializeField] private float maxDistance = 3f;
     [SerializeField] private float minDistance = 1.5f;
     
-    public ObjectType objectType;
-
     [Header("Phone Grab")] 
     [SerializeField] private int interactTimesToGrab;
     private int interactedTimes;

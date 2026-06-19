@@ -1,13 +1,23 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class EventManager : MonoBehaviour
 {
+    private List<ILuggage> luggageList;
+    [Header("Luggage Event")]
+    [SerializeField] private float minTimeBeforeReactivation = 20f;
+    [SerializeField] private float maxTimeBeforeReactivation = 60f;
+    public float luggageOverlapRadius;
+    public Vector3 luggageMoveToAmount;
+    
+    private float randomTime;
+    private float luggageTimer;
+
+    private List<IEventable> eventsList;
+    [Header("Passenger Events")]
     [SerializeField] private float eventSpawnRate = 10f;
     private float timer;
-    private List<IEventable> eventsList;
 
     [Header("Baby Event")] 
     public float babyTimeBeforeReactivation;
@@ -56,9 +66,30 @@ public class EventManager : MonoBehaviour
                 eventsList.Add(eventable);
             }
         }
+
+        luggageList = new List<ILuggage>();
+        LuggageEvent[] luggage = FindObjectsByType<LuggageEvent>(FindObjectsSortMode.None);
+        foreach (var l in luggage)
+        {
+            if (l.TryGetComponent(out ILuggage eventable))
+            {
+                luggageList.Add(eventable);
+            }
+        }
+    }
+
+    private void Start()
+    {
+        randomTime = Random.Range(minTimeBeforeReactivation, maxTimeBeforeReactivation);
     }
 
     private void Update()
+    {
+        EventSpawning();
+        LuggageEventSpawing();
+    }
+
+    private void EventSpawning()
     {
         if (eventsList.Count <= 0)
             return;
@@ -71,6 +102,23 @@ public class EventManager : MonoBehaviour
             eventsList.RemoveAt(randomEvent);
 
             timer = 0f;
+        }
+    }
+
+    private void LuggageEventSpawing()
+    {
+        if (luggageList.Count <= 0)
+            return;
+        
+        luggageTimer += Time.deltaTime;
+        if (luggageTimer >= randomTime)
+        {
+            int randomLuggage = Random.Range(0, luggageList.Count);
+            luggageList[randomLuggage].TriggerEvent();
+            luggageList.RemoveAt(randomLuggage);
+            
+            randomTime = Random.Range(minTimeBeforeReactivation, maxTimeBeforeReactivation);
+            luggageTimer = 0f;
         }
     }
 }

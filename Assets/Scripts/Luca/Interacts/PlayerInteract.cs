@@ -7,7 +7,8 @@ public enum ObjectType
     Drink1,
     Drink2,
     Phone,
-    Cart
+    Cart,
+    Luggage
 }
 
 public class PlayerInteract : MonoBehaviour
