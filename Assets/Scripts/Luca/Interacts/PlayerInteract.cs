@@ -14,7 +14,7 @@ public enum ObjectType
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private Transform cam;
-    [SerializeField] private float maxInteractDistance = 5f;
+    [SerializeField] private float maxInteractDistance = 3f;
     [SerializeField] private LayerMask interactMask;
     [SerializeField] private LayerMask eventMask;
     public IInteractable currentInteractable;

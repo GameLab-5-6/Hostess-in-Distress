@@ -6,14 +6,10 @@ public class LuggageEvent : MonoBehaviour, ILuggage
     private GameObject luggage;
     private Vector3 origin;
     public float overlapRadius = 0.25f;
+    [SerializeField] private GameObject hatboxPivot;
     [SerializeField] private LayerMask interactableMask;
     public Vector3 moveToAmount;
     public bool onOppositeSide;
-
-    [SerializeField] private float minTimeBeforeReactivation = 20f;
-    [SerializeField] private float maxTimeBeforeReactivation = 60f;
-    private float randomTime;
-    private float timer;
 
     private bool isActive;
     
@@ -52,17 +48,52 @@ public class LuggageEvent : MonoBehaviour, ILuggage
     {
         Vector3 targetPos = luggage.transform.position + moveToAmount;
 
-        StartCoroutine(MoveLuggage(targetPos, 1f));
+        StartCoroutine(MoveLuggageStart(targetPos, 1f));
     }
     
     public void FixLuggage()
     {
         Vector3 targetPos = origin;
 
-        StartCoroutine(MoveLuggage(targetPos, 1f));
+        StartCoroutine(MoveLuggageSolved(targetPos, 1f));
     }
 
-    private IEnumerator MoveLuggage(Vector3 targetPos, float time)
+    private IEnumerator MoveLuggageStart(Vector3 targetPos, float time)
+    {
+        Vector3 startPos = luggage.transform.position;
+        
+        //Debug.Log("Start Position: " + startPos + "\n Target Position: " + targetPos);
+        
+        float elapsedTime = 0f;
+
+        Quaternion hatboxRotation;
+
+        if (onOppositeSide)
+            hatboxRotation = Quaternion.Euler(0f, 0f, -90f);
+        else
+            hatboxRotation = Quaternion.Euler(0f, 0f, 90f);
+
+        while (elapsedTime < time)
+        {
+            hatboxPivot.transform.rotation = Quaternion.Lerp(Quaternion.identity, hatboxRotation, elapsedTime / time);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        
+        elapsedTime = 0f;
+
+        while (elapsedTime < time)
+        {
+            luggage.transform.position = Vector3.Lerp(startPos, targetPos, elapsedTime / time);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        
+        if (!isActive)
+            isActive = true;
+    }
+    
+    private IEnumerator MoveLuggageSolved(Vector3 targetPos, float time)
     {
         Vector3 startPos = luggage.transform.position;
         
@@ -73,6 +104,16 @@ public class LuggageEvent : MonoBehaviour, ILuggage
         while (elapsedTime < time)
         {
             luggage.transform.position = Vector3.Lerp(startPos, targetPos, elapsedTime / time);
+            luggage.transform.rotation = Quaternion.Lerp(luggage.transform.rotation, Quaternion.identity, elapsedTime / time);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        
+        elapsedTime = 0f;
+
+        while (elapsedTime < time)
+        {
+            hatboxPivot.transform.rotation = Quaternion.Lerp(hatboxPivot.transform.rotation, Quaternion.identity, elapsedTime / time);
             elapsedTime += Time.deltaTime;
             yield return null;
         }

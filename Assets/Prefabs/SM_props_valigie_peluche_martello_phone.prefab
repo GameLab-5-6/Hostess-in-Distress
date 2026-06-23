@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 33099929741798637}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,13 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: -0.8, y: -0, z: -0}
   onOppositeSide: 1
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &272522900174555406
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,13 +210,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: 0.8, y: 0, z: 0}
   onOppositeSide: 0
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &456029220222643812
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,13 +374,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: 0.8, y: 0, z: 0}
   onOppositeSide: 0
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &571656024504057662
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +520,7 @@ Transform:
   m_GameObject: {fileID: 608486487194047913}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: 39.206676}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: 39.206676}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -849,7 +846,7 @@ Transform:
   m_GameObject: {fileID: 690405814676694221}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -869,13 +866,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: -0.8, y: -0, z: -0}
   onOppositeSide: 1
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &715879310585179119
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,13 +918,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: 0.8, y: 0, z: 0}
   onOppositeSide: 0
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &773190551876541397
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,7 +952,7 @@ Transform:
   m_GameObject: {fileID: 773190551876541397}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: -445.85373}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: -445.85373}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1069,7 +1064,7 @@ Transform:
   m_GameObject: {fileID: 1138320772829024898}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: -295.05374}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: -295.05374}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1199,13 +1194,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: 0.8, y: 0, z: 0}
   onOppositeSide: 0
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &1272205033082933782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,7 +1228,7 @@ Transform:
   m_GameObject: {fileID: 1272205033082933782}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: 298.26862}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: 298.26862}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1434,7 +1428,7 @@ Transform:
   m_GameObject: {fileID: 1777439007459439099}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1454,13 +1448,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: -0.8, y: -0, z: -0}
   onOppositeSide: 1
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &1836622763413686981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,7 +1706,7 @@ Transform:
   m_GameObject: {fileID: 2361131705443806536}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: 703.4162}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: 703.4162}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2104,7 +2097,7 @@ Transform:
   m_GameObject: {fileID: 2955526170496139126}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2124,13 +2117,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: -0.8, y: -0, z: -0}
   onOppositeSide: 1
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &3221246857649412975
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,7 +2239,7 @@ Transform:
   m_GameObject: {fileID: 3311662344203838178}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2267,13 +2259,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: -0.8, y: -0, z: -0}
   onOppositeSide: 1
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &3465947956121131595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,7 +2401,7 @@ Transform:
   m_GameObject: {fileID: 3544896338577919511}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: -558.695}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: -558.695}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2522,7 +2513,7 @@ Transform:
   m_GameObject: {fileID: 3667347706257569352}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: 440.27756}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: 440.27756}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2634,7 +2625,7 @@ Transform:
   m_GameObject: {fileID: 3773289431305795397}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: -699.5325}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: -699.5325}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2746,7 +2737,7 @@ Transform:
   m_GameObject: {fileID: 3789691925306137121}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: -155.58548}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: -155.58548}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2876,13 +2867,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: 0.8, y: 0, z: 0}
   onOppositeSide: 0
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &4157819063964358958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2911,7 +2901,7 @@ Transform:
   m_GameObject: {fileID: 4157819063964358958}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: -97.22299}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: -97.22299}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3243,7 +3233,7 @@ Transform:
   m_GameObject: {fileID: 4365227454487229412}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: -645.0537}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: -645.0537}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3355,7 +3345,7 @@ Transform:
   m_GameObject: {fileID: 4482248479955301868}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: 553.11884}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: 553.11884}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3687,13 +3677,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: 0.8, y: 0, z: 0}
   onOppositeSide: 0
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &4900554472417235749
 GameObject:
   m_ObjectHideFlags: 0
@@ -4262,7 +4251,7 @@ Transform:
   m_GameObject: {fileID: 5407898605714890630}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: -240.57498}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: -240.57498}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4374,7 +4363,7 @@ Transform:
   m_GameObject: {fileID: 5458903356058095531}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: 757.89496}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: 757.89496}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4702,13 +4691,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: 0.8, y: 0, z: 0}
   onOppositeSide: 0
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &5957292652563717426
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,7 +4815,7 @@ Transform:
   m_GameObject: {fileID: 6035757218075848525}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: 239.90611}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: 239.90611}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5027,7 +5015,7 @@ Transform:
   m_GameObject: {fileID: 6393168653858914019}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5047,13 +5035,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: -0.8, y: -0, z: -0}
   onOppositeSide: 1
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &6567699163770637691
 GameObject:
   m_ObjectHideFlags: 0
@@ -6212,7 +6199,7 @@ Transform:
   m_GameObject: {fileID: 7532924008389085922}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6232,13 +6219,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: -0.8, y: -0, z: -0}
   onOppositeSide: 1
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &7550957571917666396
 GameObject:
   m_ObjectHideFlags: 0
@@ -7191,7 +7177,7 @@ Transform:
   m_GameObject: {fileID: 8396868120228400696}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7211,13 +7197,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: -0.8, y: -0, z: -0}
   onOppositeSide: 1
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &8791335075791156442
 GameObject:
   m_ObjectHideFlags: 0
@@ -7354,7 +7339,7 @@ Transform:
   m_GameObject: {fileID: 8916491658361226104}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 4.0061413e-16, w: 3.140185e-16}
-  m_LocalPosition: {x: 123.14772, y: 0.0000010728836, z: 152.04794}
+  m_LocalPosition: {x: 132.04773, y: 0.0000010728836, z: 152.04794}
   m_LocalScale: {x: 1, y: 0.8941771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7596,13 +7581,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LuggageEvent
   overlapRadius: 0.15
+  hatboxPivot: {fileID: 0}
   interactableMask:
     serializedVersion: 2
     m_Bits: 128
   moveToAmount: {x: 0.8, y: 0, z: 0}
   onOppositeSide: 0
-  minTimeBeforeReactivation: 20
-  maxTimeBeforeReactivation: 60
 --- !u!1 &9200058430086580898
 GameObject:
   m_ObjectHideFlags: 0

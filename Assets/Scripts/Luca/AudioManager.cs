@@ -58,8 +58,6 @@ public class AudioManager : MonoBehaviour
         
         StartCoroutine(DeactivateAfterPlaying(source.gameObject, clip.length));
     }
-    
-    
 
     IEnumerator DeactivateAfterPlaying(GameObject obj, float duration)
     {

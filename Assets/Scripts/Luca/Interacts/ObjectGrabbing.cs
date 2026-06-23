@@ -16,6 +16,8 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
     [SerializeField] private float distanceChangeAmount = 0.5f;
     [SerializeField] private float maxDistance = 3f;
     [SerializeField] private float minDistance = 1.5f;
+    private float interactDelay;
+    private bool canInteract;
     
     [Header("Phone Grab")] 
     [SerializeField] private int interactTimesToGrab;
@@ -28,6 +30,12 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
     {
         cam = Camera.main.transform;
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void OnEnable()
+    {
+        interactDelay = 0f;
+        canInteract = false;
     }
     
     private void Start()
@@ -44,6 +52,14 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
 
     private void Update()
     {
+        if (interactDelay < 1f)
+        {
+            canInteract = false;
+            interactDelay += Time.deltaTime;
+        }
+        else if (interactDelay >= 1f)
+            canInteract = true;
+        
         if (objectType != ObjectType.Phone)
             return;
         
@@ -120,6 +136,9 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (!canInteract)
+            return;
+        
         if (objectType != ObjectType.Phone || !isInEvent)
         {
             isInteracting = !isInteracting;
@@ -155,6 +174,7 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
                 isInteracting = true;
                 rb.constraints = RigidbodyConstraints.None;
                 isInEvent = false;
+                interactDelay = 0f;
             }
         }
     }
