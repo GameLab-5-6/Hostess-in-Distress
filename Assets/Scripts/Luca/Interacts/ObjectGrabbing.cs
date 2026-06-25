@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ObjectGrabbing : MonoBehaviour, IInteractable
 {
+    private Outline outline;
+    
     public ObjectType objectType;
     [HideInInspector] public Rigidbody rb;
     private Transform cam;
@@ -30,6 +32,7 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
     {
         cam = Camera.main.transform;
         rb = GetComponent<Rigidbody>();
+        outline = GetComponent<Outline>();
     }
 
     private void OnEnable()
@@ -48,6 +51,9 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
         {
             rb.useGravity = false;
         }
+
+        if (outline != null)
+            outline.enabled = false;
     }
 
     private void Update()

@@ -62,11 +62,11 @@ public class BabyEvent : EventBase
         base.Knockout();
     }
     
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(overlapPosition.position, overlapArea);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.blue;
+    //     Gizmos.DrawWireSphere(overlapPosition.position, overlapArea);
+    // }
     
     // private Outline outline;
     //

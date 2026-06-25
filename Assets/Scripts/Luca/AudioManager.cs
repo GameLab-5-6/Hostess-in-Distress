@@ -33,27 +33,30 @@ public class AudioManager : MonoBehaviour
         mixer.SetFloat(SFX_VOLUME_KEY, Mathf.Log10(sfxVolume) * 20);
     }
 
-    public void PlaySFX2D(AudioClip clip)
+    public void PlaySFX2D(AudioClip clip, float volume)
     {
         if (clip == null) return;
         
         AudioSource source = AudioObjectPooler.Instance.GetPooledObject().GetComponent<AudioSource>();
         source.clip = clip;
         source.spatialBlend = 0f;
+        source.volume = volume;
         source.gameObject.SetActive(true);
         source.Play();
         
         StartCoroutine(DeactivateAfterPlaying(source.gameObject, clip.length));
     }
     
-    public void PlaySFX3D(AudioClip clip)
+    public void PlaySFX3D(AudioClip clip, float volume, Vector3 position)
     {
         if (clip == null) return;
-        
+
         AudioSource source = AudioObjectPooler.Instance.GetPooledObject().GetComponent<AudioSource>();
         source.clip = clip;
         source.spatialBlend = 1f;
+        source.volume = volume;
         source.gameObject.SetActive(true);
+        source.gameObject.transform.position = position;
         source.Play();
         
         StartCoroutine(DeactivateAfterPlaying(source.gameObject, clip.length));

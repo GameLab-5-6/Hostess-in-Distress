@@ -67,12 +67,10 @@ public class DrinkEvent : EventBase
         {
             case 0:
                 drinkType = ObjectType.Drink1;
-                outline.OutlineColor = Color.red;
                 break;
             
             case 1:
                 drinkType = ObjectType.Drink2;
-                outline.OutlineColor = Color.blue;
                 break;
         }
     }
@@ -98,9 +96,9 @@ public class DrinkEvent : EventBase
         base.Knockout();
     }
     
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(overlapPosition.position, overlapArea);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.blue;
+    //     Gizmos.DrawWireSphere(overlapPosition.position, overlapArea);
+    // }
 }

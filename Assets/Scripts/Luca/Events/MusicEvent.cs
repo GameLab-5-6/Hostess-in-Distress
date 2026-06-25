@@ -81,9 +81,9 @@ public class MusicEvent : EventBase
         phonePrefab.SetActive(false);
     }
     
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(overlapPosition.position, overlapArea);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.blue;
+    //     Gizmos.DrawWireSphere(overlapPosition.position, overlapArea);
+    // }
 }

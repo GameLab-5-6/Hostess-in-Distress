@@ -18,7 +18,13 @@ public class EventManager : MonoBehaviour
     [Header("Passenger Events")]
     [SerializeField] private float eventSpawnRate = 10f;
     private float timer;
-
+    public GameObject clipPrefab;
+    public AudioClip solutionClip;
+    [Range(0f, 1f)] public float solutionVolume;
+    public AudioClip koClip;
+    [Range(0f, 1f)] public float koVolume;
+    public GameObject exclamationPoint;
+    
     [Header("Baby Event")] 
     public float babyTimeBeforeReactivation;
     public float babySolSatisfactionChange;
@@ -26,6 +32,8 @@ public class EventManager : MonoBehaviour
     public float babyKoSatisfactionChange;
     public float babyKoSanityChange;
     public float babyOverlapArea;
+    public AudioClip babyClip;
+    [Range(0f, 1f)] public float babyVolume;
     
     [Header("Child Event")] 
     public float childTimeBeforeReactivation;
@@ -33,6 +41,8 @@ public class EventManager : MonoBehaviour
     public float childSolSanityChange;
     public float childKoSatisfactionChange;
     public float childKoSanityChange;
+    public AudioClip childClip;
+    [Range(0f, 1f)] public float childVolume;
     
     [Header("Drink Event")]
     public float drinkTimeBeforeReactivation;
@@ -43,6 +53,9 @@ public class EventManager : MonoBehaviour
     public float drinkFailSatisfactionChange;
     public float drinkFailSanityChange;
     public float drinkOverlapArea;
+    public AudioClip drinkClip;
+    [Range(0f, 1f)] public float drinkVolume;
+    public float drinkTimeInBetweenAudio;
 
     [Header("Music Event")] 
     public GameObject musicPhonePrefab;
@@ -52,8 +65,9 @@ public class EventManager : MonoBehaviour
     public float musicKoSatisfactionChange;
     public float musicKoSanityChange;
     public float musicOverlapArea;
-
-
+    public AudioClip musicClip;
+    [Range(0f, 1f)] public float musicVolume;
+    
     //for the IEventables to be placed into the list they all need to be children of this EventManager object
     private void Awake()
     {

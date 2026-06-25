@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 764042076135695843}
   - component: {fileID: 6641830622813796070}
   - component: {fileID: 3027262371092262280}
+  - component: {fileID: -8521187887377906588}
   m_Layer: 7
   m_Name: SM_Bicchiere_carta
   m_TagString: Untagged
@@ -69,7 +70,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3604202039772790116, guid: 3f59c1c629b1f6746a5e8c136dcfac60, type: 3}
+  - {fileID: 2100000, guid: 22199f32362c9144fbda5f4a93ab9191, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,3 +169,21 @@ MonoBehaviour:
   interactTimesToGrab: 0
   decayRate: 0
   isInEvent: 0
+--- !u!114 &-8521187887377906588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747562621632831121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 7.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

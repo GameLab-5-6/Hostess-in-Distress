@@ -18,7 +18,9 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private LayerMask interactMask;
     [SerializeField] private LayerMask eventMask;
     public IInteractable currentInteractable;
+    private GameObject lastInteractable;
     public IEventable currentEventable;
+    private GameObject lastEventable;
     
     private bool isCharging;
     public float chargeTime = 1f;
@@ -59,15 +61,68 @@ public class PlayerInteract : MonoBehaviour
     private void CheckForInteractables()
     {
         Ray ray = new Ray(cam.position, cam.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, maxInteractDistance, interactMask))
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, maxInteractDistance, interactMask))
         {
             if (hit.collider.TryGetComponent(out IInteractable interactable))
             {
                 currentInteractable = interactable;
-                return;
+                //Outlines
+                if (hit.collider.TryGetComponent(out Outline outlineTrue))
+                {
+                    lastInteractable = hit.collider.gameObject;
+                    outlineTrue.enabled = true;
+                    return;
+                }
             }
         }
-        currentInteractable = null;
+        else
+        {
+            currentInteractable = null;
+        }
+        
+        if (lastInteractable == null)
+            return;
+        if (lastInteractable.TryGetComponent(out Outline outlineFalse))
+        {
+            outlineFalse.enabled = false;
+            lastInteractable = null;
+        }
+    }
+    
+    private void CheckForEventables()
+    {
+        Ray ray = new Ray(cam.position, cam.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, maxInteractDistance, eventMask))
+        {
+            if (hit.collider.TryGetComponent(out IEventable eventable))
+            {
+                currentEventable = eventable;
+                //Outlines
+                if (hit.collider.TryGetComponent(out EventBase eventBase))
+                {
+                    if (hit.collider.TryGetComponent(out Outline outlineTrue) && eventBase.isActive)
+                    {
+                        lastEventable = hit.collider.gameObject;
+                        outlineTrue.enabled = true;
+                        return;
+                    }
+                }
+            }
+        }
+        else
+        {
+            currentEventable = null;
+        }
+        
+        if (lastEventable == null)
+            return;
+        if (lastEventable.TryGetComponent(out Outline outlineFalse))
+        {
+            outlineFalse.enabled = false;
+            lastEventable = null;
+        }
     }
     
     private void HandleInteraction()
@@ -75,23 +130,7 @@ public class PlayerInteract : MonoBehaviour
         currentInteractable?.Interact();
         currentEventable?.Solution();
     }
-
-    private void CheckForEventables()
-    {
-        Ray ray = new Ray(cam.position, cam.forward);
-        {
-            if (Physics.Raycast(ray, out RaycastHit hit, maxInteractDistance, eventMask))
-            {
-                if (hit.collider.TryGetComponent(out IEventable eventable))
-                {
-                    currentEventable = eventable;
-                    return;
-                }
-            }
-        }
-        currentEventable = null;
-    }
-
+    
     private void StartPunch() => isCharging = true;
 
     private void HandlePunch()
@@ -105,9 +144,9 @@ public class PlayerInteract : MonoBehaviour
         isCharging = false;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(cam.transform.position, cam.transform.position + cam.transform.forward * maxInteractDistance);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawLine(cam.transform.position, cam.transform.position + cam.transform.forward * maxInteractDistance);
+    // }
 }

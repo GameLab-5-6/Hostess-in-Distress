@@ -33,6 +33,15 @@ public class EventManagerEditor : Editor
 
             foreach (BabyEvent baby in babyEvents)
             {
+                baby.clipPrefab = eventManager.clipPrefab;
+                baby.eventClip = eventManager.babyClip;
+                baby.eventVolume = eventManager.babyVolume;
+                baby.solutionClip = eventManager.solutionClip;
+                baby.solutionVolume = eventManager.solutionVolume;
+                baby.koClip = eventManager.koClip;
+                baby.koVolume = eventManager.koVolume;
+                baby.exclamationPoint = eventManager.exclamationPoint;
+                
                 baby.timeBeforeReactivation = eventManager.babyTimeBeforeReactivation;
                 baby.solSatisfactionChange = eventManager.babySolSatisfactionChange;
                 baby.solSanityChange = eventManager.babySolSanityChange;
@@ -45,6 +54,15 @@ public class EventManagerEditor : Editor
 
             foreach (ChildEvent child in childEvents)
             {
+                child.clipPrefab = eventManager.clipPrefab;
+                child.eventClip = eventManager.childClip;
+                child.eventVolume = eventManager.childVolume;
+                child.solutionClip = eventManager.solutionClip;
+                child.solutionVolume = eventManager.solutionVolume;
+                child.koClip = eventManager.koClip;
+                child.koVolume = eventManager.koVolume;
+                child.exclamationPoint = eventManager.exclamationPoint;
+                
                 child.timeBeforeReactivation = eventManager.childTimeBeforeReactivation;
                 child.solSatisfactionChange = eventManager.childSolSatisfactionChange;
                 child.solSanityChange = eventManager.childSolSanityChange;
@@ -56,6 +74,16 @@ public class EventManagerEditor : Editor
 
             foreach (DrinkEvent drink in drinkEvents)
             {
+                drink.clipPrefab = eventManager.clipPrefab;
+                drink.eventClip = eventManager.drinkClip;
+                drink.eventVolume = eventManager.drinkVolume;
+                drink.solutionClip = eventManager.solutionClip;
+                drink.solutionVolume = eventManager.solutionVolume;
+                drink.koClip = eventManager.koClip;
+                drink.koVolume = eventManager.koVolume;
+                drink.exclamationPoint = eventManager.exclamationPoint;
+                drink.timeBeforeReactivation = eventManager.drinkTimeInBetweenAudio;
+                
                 drink.timeBeforeReactivation = eventManager.drinkTimeBeforeReactivation;
                 drink.solSatisfactionChange = eventManager.drinkSolSatisfactionChange;
                 drink.solSanityChange = eventManager.drinkSolSanityChange;
@@ -70,6 +98,15 @@ public class EventManagerEditor : Editor
 
             foreach (MusicEvent music in musicEvents)
             {
+                music.clipPrefab = eventManager.clipPrefab;
+                music.eventClip = eventManager.musicClip;
+                music.eventVolume = eventManager.musicVolume;
+                music.solutionClip = eventManager.solutionClip;
+                music.solutionVolume = eventManager.solutionVolume;
+                music.koClip = eventManager.koClip;
+                music.koVolume = eventManager.koVolume;
+                music.exclamationPoint = eventManager.exclamationPoint;
+                
                 music.phonePrefab = eventManager.musicPhonePrefab;
                 music.timeBeforeReactivation = eventManager.musicTimeBeforeReactivation;
                 music.solSatisfactionChange = eventManager.musicSolSatisfactionChange;

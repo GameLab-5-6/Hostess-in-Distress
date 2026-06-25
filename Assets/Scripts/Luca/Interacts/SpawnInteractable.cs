@@ -3,22 +3,34 @@ using UnityEngine;
 
 public class SpawnInteractable : MonoBehaviour, IInteractable
 {
+    private Outline outline;
+    
     [SerializeField] private ObjectGrabbing interactable;
     [SerializeField] private Transform interactableParent;
     [SerializeField] private int poolSize = 3;
     [SerializeField] private float spawnOffset = 0.25f;
 
     [Header("Drinks")]
-    [SerializeField] private bool isDrink;
+    public bool isDrink;
     [SerializeField] private float drinkDistance;
     [SerializeField] private LayerMask eventMask;
-    private bool allowInteract;
+    public bool allowInteract = true;
 
     private InteractablePooler<ObjectGrabbing> interactablePooler;
     
     private void Awake()
     {
         interactablePooler = new InteractablePooler<ObjectGrabbing>(interactable, interactableParent, poolSize);
+        outline = GetComponent<Outline>();
+    }
+
+    private void Start()
+    {
+        allowInteract = true;
+        if (isDrink)
+            allowInteract = false;
+        if (outline != null)
+            outline.enabled = false;
     }
 
     public void Interact()
@@ -37,23 +49,26 @@ public class SpawnInteractable : MonoBehaviour, IInteractable
                         allowInteract = true;
                 }
             }
-        }
 
-        if (!allowInteract && isDrink)
-            return;
+            if (!allowInteract)
+            {
+                //UI message to get close to passenger
+                return;
+            }
+        }
         
         Vector3 offsetPos = new Vector3(transform.position.x, transform.position.y + spawnOffset, transform.position.z);
         interactablePooler.GetFromPool(offsetPos, Quaternion.identity);
     }
     
-    private void OnDrawGizmos()
-    {
-        if (!isDrink)
-            return;
-        
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, drinkDistance);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     if (!isDrink)
+    //         return;
+    //     
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawWireSphere(transform.position, drinkDistance);
+    // }
 }
 
 public class InteractablePooler<T> where T : ObjectGrabbing

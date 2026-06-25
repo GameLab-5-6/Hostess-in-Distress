@@ -122,9 +122,9 @@ public class LuggageEvent : MonoBehaviour, ILuggage
             isActive = true;
     }
     
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(origin, overlapRadius);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.blue;
+    //     Gizmos.DrawWireSphere(origin, overlapRadius);
+    // }
 }
