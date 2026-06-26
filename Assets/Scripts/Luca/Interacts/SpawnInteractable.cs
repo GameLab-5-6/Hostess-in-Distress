@@ -59,6 +59,7 @@ public class SpawnInteractable : MonoBehaviour, IInteractable
         
         Vector3 offsetPos = new Vector3(transform.position.x, transform.position.y + spawnOffset, transform.position.z);
         interactablePooler.GetFromPool(offsetPos, Quaternion.identity);
+        outline.enabled = false;
     }
     
     // private void OnDrawGizmos()

@@ -27,6 +27,11 @@ public class EventManagerEditor : Editor
                     luggage.moveToAmount = -eventManager.luggageMoveToAmount;
                 else
                     luggage.moveToAmount = eventManager.luggageMoveToAmount;
+                
+                luggage.luggageClip = eventManager.luggageClip;
+                luggage.luggageVolume = eventManager.luggageVolume;
+                luggage.solutionClip = eventManager.solutionClip;
+                luggage.solutionVolume = eventManager.solutionVolume;
             }
             
             BabyEvent[] babyEvents = FindObjectsByType<BabyEvent>(FindObjectsSortMode.None);
@@ -41,6 +46,7 @@ public class EventManagerEditor : Editor
                 baby.koClip = eventManager.koClip;
                 baby.koVolume = eventManager.koVolume;
                 baby.exclamationPoint = eventManager.exclamationPoint;
+                baby.timeInBetweenAudio = eventManager.babyTimeInBetweenAudio;
                 
                 baby.timeBeforeReactivation = eventManager.babyTimeBeforeReactivation;
                 baby.solSatisfactionChange = eventManager.babySolSatisfactionChange;
@@ -62,6 +68,7 @@ public class EventManagerEditor : Editor
                 child.koClip = eventManager.koClip;
                 child.koVolume = eventManager.koVolume;
                 child.exclamationPoint = eventManager.exclamationPoint;
+                child.timeInBetweenAudio = eventManager.childTimeInBetweenAudio;
                 
                 child.timeBeforeReactivation = eventManager.childTimeBeforeReactivation;
                 child.solSatisfactionChange = eventManager.childSolSatisfactionChange;
@@ -82,7 +89,7 @@ public class EventManagerEditor : Editor
                 drink.koClip = eventManager.koClip;
                 drink.koVolume = eventManager.koVolume;
                 drink.exclamationPoint = eventManager.exclamationPoint;
-                drink.timeBeforeReactivation = eventManager.drinkTimeInBetweenAudio;
+                drink.timeInBetweenAudio = eventManager.drinkTimeInBetweenAudio;
                 
                 drink.timeBeforeReactivation = eventManager.drinkTimeBeforeReactivation;
                 drink.solSatisfactionChange = eventManager.drinkSolSatisfactionChange;
@@ -92,6 +99,8 @@ public class EventManagerEditor : Editor
                 drink.failSatisfactionChange = eventManager.drinkFailSatisfactionChange;
                 drink.failSanityChange = eventManager.drinkFailSanityChange;
                 drink.overlapArea = eventManager.drinkOverlapArea;
+                drink.drink1Bubble = eventManager.drink1Bubble;
+                drink.drink2Bubble = eventManager.drink2Bubble;
             }
             
             MusicEvent[] musicEvents = FindObjectsByType<MusicEvent>(FindObjectsSortMode.None);
@@ -106,6 +115,7 @@ public class EventManagerEditor : Editor
                 music.koClip = eventManager.koClip;
                 music.koVolume = eventManager.koVolume;
                 music.exclamationPoint = eventManager.exclamationPoint;
+                music.timeInBetweenAudio = eventManager.musicTimeInBetweenAudio;
                 
                 music.phonePrefab = eventManager.musicPhonePrefab;
                 music.timeBeforeReactivation = eventManager.musicTimeBeforeReactivation;

@@ -6,37 +6,55 @@ public class UIManager : MonoBehaviour
 {
     private GameManager gm;
     private PlayerInteract pi;
-    
+
     [SerializeField] private GameObject gamePanel;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject losePanel;
+
     [SerializeField] private TMP_Text interactPrompt;
-    [SerializeField] private TMP_Text eventPrompt;
+    //[SerializeField] private TMP_Text eventPrompt;
     [SerializeField] private Image sanityBar;
     [SerializeField] private Image satisfactionBar;
     [SerializeField] private Image chargeBar;
-    
+
+    [SerializeField] private GameObject planeImage;
+    [SerializeField] private Transform pointA;
+    [SerializeField] private Transform pointB;
+    private float elapsedGameTime;
+
     private void Awake()
     {
         gm = FindAnyObjectByType<GameManager>();
         pi = FindAnyObjectByType<PlayerInteract>();
     }
-    
+
     private void Start()
     {
         gamePanel.gameObject.SetActive(true);
+        pausePanel.gameObject.SetActive(false);
+        winPanel.gameObject.SetActive(false);
+        losePanel.gameObject.SetActive(false);
         interactPrompt.gameObject.SetActive(false);
-        eventPrompt.gameObject.SetActive(false);
+        //eventPrompt.gameObject.SetActive(false);
+        
+        elapsedGameTime = 0f;
     }
-    
+
     private void OnEnable()
     {
-        GameManager.OnPause += HideGamePanel;
-        GameManager.OnResume += ShowGamePanel;
+        GameManager.OnPause += OpenPausePanel;
+        GameManager.OnResume += HidePausePanel;
+        GameManager.OnGameWin += OpenWinPanel;
+        GameManager.OnGameLose += OpenLosePanel;
     }
 
     private void OnDisable()
     {
-        GameManager.OnPause -= HideGamePanel;
-        GameManager.OnResume -= ShowGamePanel;
+        GameManager.OnPause -= OpenPausePanel;
+        GameManager.OnResume -= HidePausePanel;
+        GameManager.OnGameWin -= OpenWinPanel;
+        GameManager.OnGameLose -= OpenLosePanel;
     }
 
     private void Update()
@@ -44,19 +62,44 @@ public class UIManager : MonoBehaviour
         sanityBar.fillAmount = gm.currentSanity / gm.maxSanity;
         satisfactionBar.fillAmount = gm.currentSatisfaction / gm.maxSatisfaction;
         chargeBar.fillAmount = pi.chargeAmount / pi.chargeTime;
-        
+
         if (pi.currentInteractable != null)
             interactPrompt.gameObject.SetActive(true);
         else
             interactPrompt.gameObject.SetActive(false);
+
+        // if (pi.currentEventable != null)
+        //     eventPrompt.gameObject.SetActive(true);
+        // else
+        //     eventPrompt.gameObject.SetActive(false);
         
-        if (pi.currentEventable != null)
-            eventPrompt.gameObject.SetActive(true);
-        else
-            eventPrompt.gameObject.SetActive(false);
+        elapsedGameTime += Time.deltaTime;
+        planeImage.transform.position = Vector3.Lerp(pointA.position, pointB.position, elapsedGameTime / gm.totalGameTime);
     }
 
-    private void HideGamePanel() => gamePanel.gameObject.SetActive(false);
+    private void OpenPausePanel()
+    {
+        pausePanel.gameObject.SetActive(true);
+        gamePanel.gameObject.SetActive(false);
+    }
 
-    private void ShowGamePanel() => gamePanel.gameObject.SetActive(true);
+    private void HidePausePanel()
+    {
+        pausePanel.gameObject.SetActive(false);
+        gamePanel.gameObject.SetActive(true);
+    }
+
+    private void OpenWinPanel()
+    {
+        gamePanel.gameObject.SetActive(false);
+        winPanel.gameObject.SetActive(true);
+        InputManager.OnPauseAllowed?.Invoke();
+    }
+
+    private void OpenLosePanel()
+    {
+        gamePanel.gameObject.SetActive(false);
+        losePanel.gameObject.SetActive(true);
+        InputManager.OnPauseAllowed?.Invoke();
+    }
 }

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,14 +12,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int activeEvents = 0;
 
     [Header("Game Settings")] 
-    [SerializeField] private float totalGameTime = 300f;
+    public float totalGameTime = 300f;
     private float timer;
 
-    [Header("temporary variables")] 
-    [SerializeField] private GameObject winHue;
-    [SerializeField] private GameObject loseHue;
-
-    public static event Action OnPause, OnResume;
+    public static event Action OnPause, OnResume, OnGameWin, OnGameLose;
     
     private void OnEnable()
     {
@@ -43,9 +40,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        winHue.SetActive(false);
-        loseHue.SetActive(false);
-        
         activeEvents = 0;
         currentSanity = maxSanity;
         currentSatisfaction = maxSatisfaction;
@@ -84,7 +78,8 @@ public class GameManager : MonoBehaviour
 
     private void WinGame()
     {
-        winHue.SetActive(true);
+        OnGameWin?.Invoke();
+        Time.timeScale = 0f;
     }
 
     private void StatusCheck()
@@ -97,28 +92,39 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        loseHue.SetActive(true);
+        OnGameLose?.Invoke();
+        Time.timeScale = 0f;
     }
     
     private void PauseGame()
     {
         if (Time.timeScale != 0f)
         {
-            Debug.Log("Pause Game");
             Time.timeScale = 0f;
+            AudioListener.pause = true;
             OnPause?.Invoke();
             InputManager.OnPauseAllowed?.Invoke();
         }
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         if (Time.timeScale == 0f)
         {
-            Debug.Log("Resume Game");
             Time.timeScale = 1f;
+            AudioListener.pause = false;
             OnResume?.Invoke();
             InputManager.OnResumeAllowed?.Invoke();
         }
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

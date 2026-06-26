@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObjectGrabbing : MonoBehaviour, IInteractable
 {
-    private Outline outline;
+    [HideInInspector] public Outline outline;
     
     public ObjectType objectType;
     [HideInInspector] public Rigidbody rb;

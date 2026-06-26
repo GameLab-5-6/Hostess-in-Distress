@@ -10,6 +10,8 @@ public class EventManager : MonoBehaviour
     [SerializeField] private float maxTimeBeforeReactivation = 60f;
     public float luggageOverlapRadius;
     public Vector3 luggageMoveToAmount;
+    public AudioClip luggageClip;
+    [Range(0f, 1f)] public float luggageVolume;
     
     private float randomTime;
     private float luggageTimer;
@@ -33,6 +35,7 @@ public class EventManager : MonoBehaviour
     public float babyKoSanityChange;
     public float babyOverlapArea;
     public AudioClip babyClip;
+    public float babyTimeInBetweenAudio;
     [Range(0f, 1f)] public float babyVolume;
     
     [Header("Child Event")] 
@@ -42,6 +45,7 @@ public class EventManager : MonoBehaviour
     public float childKoSatisfactionChange;
     public float childKoSanityChange;
     public AudioClip childClip;
+    public float childTimeInBetweenAudio;
     [Range(0f, 1f)] public float childVolume;
     
     [Header("Drink Event")]
@@ -54,8 +58,10 @@ public class EventManager : MonoBehaviour
     public float drinkFailSanityChange;
     public float drinkOverlapArea;
     public AudioClip drinkClip;
-    [Range(0f, 1f)] public float drinkVolume;
     public float drinkTimeInBetweenAudio;
+    [Range(0f, 1f)] public float drinkVolume;
+    public GameObject drink1Bubble;
+    public GameObject drink2Bubble;
 
     [Header("Music Event")] 
     public GameObject musicPhonePrefab;
@@ -66,6 +72,7 @@ public class EventManager : MonoBehaviour
     public float musicKoSanityChange;
     public float musicOverlapArea;
     public AudioClip musicClip;
+    public float musicTimeInBetweenAudio;
     [Range(0f, 1f)] public float musicVolume;
     
     //for the IEventables to be placed into the list they all need to be children of this EventManager object

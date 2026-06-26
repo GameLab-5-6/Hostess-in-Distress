@@ -11,6 +11,9 @@ public class DrinkEvent : EventBase
     [SerializeField] private Transform overlapPosition;
     public float overlapArea;
     [SerializeField] private LayerMask interactMask;
+    [SerializeField] private Transform bubblePosition;
+    public GameObject drink1Bubble;
+    public GameObject drink2Bubble;
 
     private int randomDrink;
     private ObjectType drinkType;
@@ -21,11 +24,15 @@ public class DrinkEvent : EventBase
     protected override void Awake()
     {
         base.Awake();
+        drink1Bubble = Instantiate(drink1Bubble, bubblePosition.position, Quaternion.identity, transform);
+        drink2Bubble = Instantiate(drink2Bubble, bubblePosition.position, Quaternion.identity, transform);
     }
 
     protected override void Start()
     {
         base.Start();
+        drink1Bubble.SetActive(false);
+        drink2Bubble.SetActive(false);
     }
 
     protected override void Update()
@@ -67,10 +74,12 @@ public class DrinkEvent : EventBase
         {
             case 0:
                 drinkType = ObjectType.Drink1;
+                drink1Bubble.SetActive(true);
                 break;
             
             case 1:
                 drinkType = ObjectType.Drink2;
+                drink2Bubble.SetActive(true);
                 break;
         }
     }
@@ -84,6 +93,8 @@ public class DrinkEvent : EventBase
     private void SolutionWithObject()
     {
         base.Solution();
+        drink1Bubble.SetActive(false);
+        drink2Bubble.SetActive(false);
     }
 
     public override void Solution()
@@ -94,6 +105,8 @@ public class DrinkEvent : EventBase
     public override void Knockout()
     {
         base.Knockout();
+        drink1Bubble.SetActive(false);
+        drink2Bubble.SetActive(false);
     }
     
     // private void OnDrawGizmos()

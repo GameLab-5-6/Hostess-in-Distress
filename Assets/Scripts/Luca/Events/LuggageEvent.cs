@@ -11,12 +11,18 @@ public class LuggageEvent : MonoBehaviour, ILuggage
     public Vector3 moveToAmount;
     public bool onOppositeSide;
 
+    public AudioClip luggageClip;
+    public float luggageVolume;
+    public AudioClip solutionClip;
+    public float solutionVolume;
+
     private bool isActive;
     
     private void Start()
     {
         luggage = transform.GetChild(0).gameObject;
         origin = luggage.transform.position;
+        luggage.layer = LayerMask.NameToLayer("Default");
     }
 
     private void Update()
@@ -38,6 +44,11 @@ public class LuggageEvent : MonoBehaviour, ILuggage
                     grabbing.isInteracting = false;
                     isActive = false;
                     luggage = grabbing.gameObject;
+                    luggage.layer = LayerMask.NameToLayer("Default");
+                    grabbing.outline.enabled = false;
+                    
+                    AudioManager.Instance.PlaySFX2D(solutionClip, solutionVolume);
+                    
                     FixLuggage();
                 }
             }
@@ -47,6 +58,7 @@ public class LuggageEvent : MonoBehaviour, ILuggage
     public void TriggerEvent()
     {
         Vector3 targetPos = luggage.transform.position + moveToAmount;
+        luggage.layer = LayerMask.NameToLayer("Interactable");
 
         StartCoroutine(MoveLuggageStart(targetPos, 1f));
     }
@@ -88,6 +100,8 @@ public class LuggageEvent : MonoBehaviour, ILuggage
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
+        AudioManager.Instance.PlaySFX3D(luggageClip, luggageVolume, luggage.transform.position);
         
         if (!isActive)
             isActive = true;

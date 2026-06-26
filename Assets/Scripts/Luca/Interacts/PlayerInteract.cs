@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public enum ObjectType
@@ -21,7 +22,8 @@ public class PlayerInteract : MonoBehaviour
     private GameObject lastInteractable;
     public IEventable currentEventable;
     private GameObject lastEventable;
-    
+
+    [SerializeField] private GameObject hammer;
     private bool isCharging;
     public float chargeTime = 1f;
     public float chargeAmount;
@@ -44,6 +46,7 @@ public class PlayerInteract : MonoBehaviour
     {
         isCharging = false;
         chargeAmount = 0f;
+        hammer.SetActive(false);
     }
     
     private void Update()
@@ -67,6 +70,13 @@ public class PlayerInteract : MonoBehaviour
             if (hit.collider.TryGetComponent(out IInteractable interactable))
             {
                 currentInteractable = interactable;
+                
+                if (hit.collider.gameObject != lastInteractable && lastInteractable != null)
+                {
+                    if (lastInteractable.TryGetComponent(out Outline lastOutline))
+                        lastOutline.enabled = false;
+                }
+                
                 //Outlines
                 if (hit.collider.TryGetComponent(out Outline outlineTrue))
                 {
@@ -138,10 +148,20 @@ public class PlayerInteract : MonoBehaviour
         if (chargeAmount >= chargeTime)
         {
             currentEventable?.Knockout();
+            StartCoroutine(HammerAnimation());
         }
 
         chargeAmount = 0f;
         isCharging = false;
+    }
+
+    private IEnumerator HammerAnimation()
+    {
+        hammer.SetActive(true);
+        
+        yield return new WaitForSeconds(0.25f);
+        
+        hammer.SetActive(false);
     }
 
     // private void OnDrawGizmos()

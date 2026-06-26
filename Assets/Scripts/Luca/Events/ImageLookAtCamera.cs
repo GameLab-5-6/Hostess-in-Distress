@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ExclamationPointMovement : MonoBehaviour
+public class ImageLookAtCamera : MonoBehaviour
 {
     private void Update()
     {
