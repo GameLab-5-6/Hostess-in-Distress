@@ -13,12 +13,13 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Slider bgSlider;
 
-    public static event Action<float, float, float> OnPrefsUpdated;
+    public static event Action<string, float> OnPrefsUpdated;
     
     private void Awake()
     {
         //Switches to UI Inputs at start
         InputManager.OnPauseAllowed?.Invoke();
+        Time.timeScale = 0f;
     }
     
     private void OnEnable()
@@ -37,14 +38,14 @@ public class MainMenuUI : MonoBehaviour
         settingsPanel.SetActive(false);
         tutorialPanel.SetActive(false);
         
-        mainSlider.value = PlayerPrefs.GetFloat("MasterVolume", 0.5f);
-        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
-        bgSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+        mainSlider.value = PlayerPrefs.GetFloat(AudioManager.MASTER_VOLUME_KEY, 0.5f);
+        sfxSlider.value = PlayerPrefs.GetFloat(AudioManager.SFX_VOLUME_KEY, 0.5f);
+        bgSlider.value = PlayerPrefs.GetFloat(AudioManager.MUSIC_VOLUME_KEY, 0.5f);
     }
     
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Scenes/Main");
     }
 
     public void OpenSettings()
@@ -53,9 +54,28 @@ public class MainMenuUI : MonoBehaviour
         mainMenuPanel.SetActive(false);
     }
 
-    public void UpdateVolumePref()
+    public void UpdateMainPref()
     {
-        OnPrefsUpdated?.Invoke(mainSlider.value, sfxSlider.value, bgSlider.value);
+        string key = AudioManager.MASTER_VOLUME_KEY;
+        float volume = mainSlider.value;
+        
+        OnPrefsUpdated?.Invoke(key, volume);
+    }
+
+    public void UpdateSFXPref()
+    {
+        string key = AudioManager.SFX_VOLUME_KEY;
+        float volume = sfxSlider.value;
+        
+        OnPrefsUpdated?.Invoke(key, volume);
+    }
+
+    public void UpdateBGPref()
+    {
+        string key = AudioManager.MUSIC_VOLUME_KEY;
+        float volume = bgSlider.value;
+        
+        OnPrefsUpdated?.Invoke(key, volume);
     }
 
     public void OpenTutorial()

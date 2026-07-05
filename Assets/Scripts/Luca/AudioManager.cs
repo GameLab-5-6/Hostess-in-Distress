@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+        
         if (Instance != null)
         {
             Destroy(this);
@@ -21,21 +24,26 @@ public class AudioManager : MonoBehaviour
         }
 
         Instance = this;
-
-        LoadVolumes();
     }
 
     private void OnEnable()
     {
         MainMenuUI.OnPrefsUpdated += UpdateVolumeMixer;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
     {
         MainMenuUI.OnPrefsUpdated -= UpdateVolumeMixer;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-private void LoadVolumes()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        LoadVolumes();
+    }
+
+    private void LoadVolumes()
     {
         float masterVolume = PlayerPrefs.GetFloat(MASTER_VOLUME_KEY, 0.5f);
         float sfxVolume = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, 0.5f);
@@ -46,11 +54,9 @@ private void LoadVolumes()
         mixer.SetFloat(MUSIC_VOLUME_KEY, Mathf.Log10(musicVolume) * 20);
     }
 
-    public void UpdateVolumeMixer(float main, float sfx, float music)
+    public void UpdateVolumeMixer(string key, float volume)
     {
-        PlayerPrefs.SetFloat(MASTER_VOLUME_KEY, main);
-        PlayerPrefs.SetFloat(SFX_VOLUME_KEY, sfx);
-        PlayerPrefs.SetFloat(MUSIC_VOLUME_KEY, music);
+        PlayerPrefs.SetFloat(key, volume);
 
         LoadVolumes();
     }

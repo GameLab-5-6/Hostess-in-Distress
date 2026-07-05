@@ -16,6 +16,12 @@ public class GameManager : MonoBehaviour
     private float timer;
 
     public static event Action OnPause, OnResume, OnGameWin, OnGameLose;
+
+    private void Awake()
+    {
+        ResumeGame();
+        AudioListener.volume = 1f;
+    }
     
     private void OnEnable()
     {
@@ -125,8 +131,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void QuitGame()
+    public void ReturnToMainMenu()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Scenes/Start");
     }
 }

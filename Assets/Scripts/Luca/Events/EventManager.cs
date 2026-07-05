@@ -161,7 +161,7 @@ public class EventManager : MonoBehaviour
                     break;
                 
                 case 2:
-                    ChildEvent[] dEvents = FindObjectsByType<ChildEvent>(FindObjectsSortMode.None);
+                    DrinkEvent[] dEvents = FindObjectsByType<DrinkEvent>(FindObjectsSortMode.None);
                     int randomDrink = Random.Range(0, dEvents.Length);
                     int dEventIndex = eventsList.IndexOf(dEvents[randomDrink]);
                     eventsList[dEventIndex].Activate();
@@ -169,7 +169,7 @@ public class EventManager : MonoBehaviour
                     break;
                 
                 case 3:
-                    ChildEvent[] mEvents = FindObjectsByType<ChildEvent>(FindObjectsSortMode.None);
+                    MusicEvent[] mEvents = FindObjectsByType<MusicEvent>(FindObjectsSortMode.None);
                     int randomMusic = Random.Range(0, mEvents.Length);
                     int mEventIndex = eventsList.IndexOf(mEvents[randomMusic]);
                     eventsList[mEventIndex].Activate();
