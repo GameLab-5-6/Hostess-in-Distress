@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
     {
         OnGameWin?.Invoke();
         Time.timeScale = 0f;
+        AudioListener.pause = true;
     }
 
     private void StatusCheck()
@@ -94,6 +95,7 @@ public class GameManager : MonoBehaviour
     {
         OnGameLose?.Invoke();
         Time.timeScale = 0f;
+        AudioListener.pause = true;
     }
     
     private void PauseGame()

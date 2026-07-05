@@ -1,9 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
 
 public class EventManager : MonoBehaviour
 {
+    [Header("Start Game Events")] 
+    [SerializeField] private float[] startEventTime;
+    private int startEventIndex = 0;
+    
     private List<ILuggage> luggageList;
     [Header("Luggage Event")]
     [SerializeField] private float minTimeBeforeReactivation = 20f;
@@ -114,6 +119,12 @@ public class EventManager : MonoBehaviour
     {
         if (eventsList.Count <= 0)
             return;
+
+        if (startEventIndex < startEventTime.Length)
+        {
+            StartEventSpawning();
+            return;
+        }
         
         timer += Time.deltaTime;
         if (timer >= eventSpawnRate)
@@ -122,6 +133,57 @@ public class EventManager : MonoBehaviour
             eventsList[randomEvent].Activate();
             eventsList.RemoveAt(randomEvent);
 
+            timer = 0f;
+        }
+    }
+
+    private void StartEventSpawning()
+    {
+        timer += Time.deltaTime;
+        if (timer >= startEventTime[startEventIndex])
+        {
+            switch (startEventIndex)
+            {
+                case 0:
+                    ChildEvent[] cEvents = FindObjectsByType<ChildEvent>(FindObjectsSortMode.None);
+                    int randomChild = Random.Range(0, cEvents.Length);
+                    int cEventIndex = eventsList.IndexOf(cEvents[randomChild]);
+                    eventsList[cEventIndex].Activate();
+                    eventsList.RemoveAt(cEventIndex);
+                    break;
+                
+                case 1:
+                    BabyEvent[] bEvents = FindObjectsByType<BabyEvent>(FindObjectsSortMode.None);
+                    int randomBaby = Random.Range(0, bEvents.Length);
+                    int bEventIndex = eventsList.IndexOf(bEvents[randomBaby]);
+                    eventsList[bEventIndex].Activate();
+                    eventsList.RemoveAt(bEventIndex);
+                    break;
+                
+                case 2:
+                    ChildEvent[] dEvents = FindObjectsByType<ChildEvent>(FindObjectsSortMode.None);
+                    int randomDrink = Random.Range(0, dEvents.Length);
+                    int dEventIndex = eventsList.IndexOf(dEvents[randomDrink]);
+                    eventsList[dEventIndex].Activate();
+                    eventsList.RemoveAt(dEventIndex);
+                    break;
+                
+                case 3:
+                    ChildEvent[] mEvents = FindObjectsByType<ChildEvent>(FindObjectsSortMode.None);
+                    int randomMusic = Random.Range(0, mEvents.Length);
+                    int mEventIndex = eventsList.IndexOf(mEvents[randomMusic]);
+                    eventsList[mEventIndex].Activate();
+                    eventsList.RemoveAt(mEventIndex);
+                    break;
+                
+                default:
+                    int randomEvent = Random.Range(0, eventsList.Count);
+                    eventsList[randomEvent].Activate();
+                    eventsList.RemoveAt(randomEvent);
+                    break;
+            }
+
+            startEventIndex++;
             timer = 0f;
         }
     }

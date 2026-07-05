@@ -38,8 +38,11 @@ public abstract class EventBase : MonoBehaviour, IEventable
     protected virtual void Awake()
     {
         outline = GetComponent<Outline>();
-        exclamationPoint = Instantiate(exclamationPoint, exclamationSpawnPosition.position, Quaternion.identity, exclamationSpawnPosition);
-        exclamationPoint.SetActive(false);
+        if (exclamationPoint != null)
+        {
+            exclamationPoint = Instantiate(exclamationPoint, exclamationSpawnPosition.position, Quaternion.identity, exclamationSpawnPosition);
+            exclamationPoint.SetActive(false);
+        }
         
         clipPrefab = Instantiate(clipPrefab, transform.position, Quaternion.identity, transform);
         clipPrefab.GetComponent<AudioSource>().clip = eventClip;
