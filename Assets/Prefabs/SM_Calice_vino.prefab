@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019e0e1ebc06198418f06146a84b69be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectGrabbing
+  outline: {fileID: 0}
   objectType: 3
   rb: {fileID: 0}
   isInteracting: 1
@@ -165,7 +166,7 @@ MonoBehaviour:
   rotationSpeed: 20
   distanceChangeAmount: 0.5
   maxDistance: 3
-  minDistance: 0.5
+  minDistance: 0.75
   interactTimesToGrab: 0
   decayRate: 0
   isInEvent: 0

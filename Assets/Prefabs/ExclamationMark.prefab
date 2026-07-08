@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5752011318997821694}
   - component: {fileID: 4704102115270587379}
-  - component: {fileID: 1848270725003090044}
+  - component: {fileID: 7138919501928960140}
   m_Layer: 0
   m_Name: ExclamationMark
   m_TagString: Untagged
@@ -92,25 +92,15 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!95 &1848270725003090044
-Animator:
-  serializedVersion: 7
+--- !u!114 &7138919501928960140
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566158265707127578}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ba1aedfe0a3230842ada7d9e94789ad8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651cdb8bd7f02964e9ad306033c67e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImageLookAtCamera

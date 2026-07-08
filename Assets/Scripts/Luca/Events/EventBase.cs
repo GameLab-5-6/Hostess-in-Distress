@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 
 [RequireComponent(typeof(Outline))]
 public abstract class EventBase : MonoBehaviour, IEventable
@@ -10,6 +11,7 @@ public abstract class EventBase : MonoBehaviour, IEventable
     protected float timer;
     public GameObject exclamationPoint;
     [SerializeField] protected Transform exclamationSpawnPosition;
+    [SerializeField] private GameObject passengerHead;
     
     [Header("Solution")]
     public float solSatisfactionChange;
@@ -76,6 +78,19 @@ public abstract class EventBase : MonoBehaviour, IEventable
         }
         else
         {
+            if (passengerHead != null)
+            {
+                Vector3 targetLook = Camera.main.transform.position - passengerHead.transform.position;
+
+                float angle = Vector3.Angle(Vector3.forward, targetLook);
+                float clamp = Mathf.Clamp(angle, -90f, 90f);
+
+                Vector3 clampedTarget =
+                    Vector3.RotateTowards(Vector3.forward, targetLook, clamp * Mathf.Deg2Rad, Mathf.Infinity);
+
+                passengerHead.transform.rotation = Quaternion.LookRotation(clampedTarget, Vector3.up);
+            }
+            
             if (audioTimer < eventClip.length + timeInBetweenAudio)
             {
                 audioTimer += Time.deltaTime;
@@ -107,7 +122,8 @@ public abstract class EventBase : MonoBehaviour, IEventable
         gameObject.layer = LayerMask.NameToLayer("Eventable");
         audioTimer = eventClip.length + timeInBetweenAudio;
 
-        exclamationPoint.SetActive(true);
+        if (exclamationPoint != null)
+            exclamationPoint.SetActive(true);
         
         OnUpdateActiveEvents?.Invoke(1);
     }
@@ -117,7 +133,9 @@ public abstract class EventBase : MonoBehaviour, IEventable
         isActive = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
         
-        exclamationPoint.SetActive(false);
+        if (exclamationPoint != null)
+            exclamationPoint.SetActive(false);
+        
         StopAudio();
 
         AudioManager.Instance.PlaySFX2D(solutionClip, solutionVolume);
@@ -132,7 +150,9 @@ public abstract class EventBase : MonoBehaviour, IEventable
         isActive = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
         
-        exclamationPoint.SetActive(false);
+        if (exclamationPoint != null)
+            exclamationPoint.SetActive(false);
+        
         StopAudio();
         
         AudioManager.Instance.PlaySFX2D(koClip, koVolume);

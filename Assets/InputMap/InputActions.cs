@@ -136,6 +136,24 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MaxGrab"",
+                    ""type"": ""Button"",
+                    ""id"": ""fd5d364f-4325-4782-87c4-98b6dc0334f5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MinGrab"",
+                    ""type"": ""Button"",
+                    ""id"": ""4aed7191-fb28-4da0-ae55-081f6e219492"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -259,6 +277,28 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Punch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d02f6db0-1727-42bc-a5db-52732d89b09b"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MaxGrab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d182a03b-75af-49ab-8811-3f14ab78ec2c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MinGrab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -300,6 +340,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_GrabDistance = m_Player.FindAction("GrabDistance", throwIfNotFound: true);
         m_Player_Punch = m_Player.FindAction("Punch", throwIfNotFound: true);
+        m_Player_MaxGrab = m_Player.FindAction("MaxGrab", throwIfNotFound: true);
+        m_Player_MinGrab = m_Player.FindAction("MinGrab", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Resume = m_UI.FindAction("Resume", throwIfNotFound: true);
@@ -389,6 +431,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_GrabDistance;
     private readonly InputAction m_Player_Punch;
+    private readonly InputAction m_Player_MaxGrab;
+    private readonly InputAction m_Player_MinGrab;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -420,6 +464,14 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Punch".
         /// </summary>
         public InputAction @Punch => m_Wrapper.m_Player_Punch;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/MaxGrab".
+        /// </summary>
+        public InputAction @MaxGrab => m_Wrapper.m_Player_MaxGrab;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/MinGrab".
+        /// </summary>
+        public InputAction @MinGrab => m_Wrapper.m_Player_MinGrab;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -461,6 +513,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Punch.started += instance.OnPunch;
             @Punch.performed += instance.OnPunch;
             @Punch.canceled += instance.OnPunch;
+            @MaxGrab.started += instance.OnMaxGrab;
+            @MaxGrab.performed += instance.OnMaxGrab;
+            @MaxGrab.canceled += instance.OnMaxGrab;
+            @MinGrab.started += instance.OnMinGrab;
+            @MinGrab.performed += instance.OnMinGrab;
+            @MinGrab.canceled += instance.OnMinGrab;
         }
 
         /// <summary>
@@ -487,6 +545,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Punch.started -= instance.OnPunch;
             @Punch.performed -= instance.OnPunch;
             @Punch.canceled -= instance.OnPunch;
+            @MaxGrab.started -= instance.OnMaxGrab;
+            @MaxGrab.performed -= instance.OnMaxGrab;
+            @MaxGrab.canceled -= instance.OnMaxGrab;
+            @MinGrab.started -= instance.OnMinGrab;
+            @MinGrab.performed -= instance.OnMinGrab;
+            @MinGrab.canceled -= instance.OnMinGrab;
         }
 
         /// <summary>
@@ -658,6 +722,20 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPunch(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MaxGrab" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMaxGrab(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MinGrab" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMinGrab(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

@@ -42,6 +42,7 @@ public class EventManager : MonoBehaviour
     public AudioClip babyClip;
     public float babyTimeInBetweenAudio;
     [Range(0f, 1f)] public float babyVolume;
+    public string babyInteractText;
     
     [Header("Child Event")] 
     public float childTimeBeforeReactivation;
@@ -67,6 +68,7 @@ public class EventManager : MonoBehaviour
     [Range(0f, 1f)] public float drinkVolume;
     public GameObject drink1Bubble;
     public GameObject drink2Bubble;
+    public string drinkInteractText;
 
     [Header("Music Event")] 
     public GameObject musicPhonePrefab;
@@ -79,6 +81,7 @@ public class EventManager : MonoBehaviour
     public AudioClip musicClip;
     public float musicTimeInBetweenAudio;
     [Range(0f, 1f)] public float musicVolume;
+    public string musicInteractText;
     
     //for the IEventables to be placed into the list they all need to be children of this EventManager object
     private void Awake()

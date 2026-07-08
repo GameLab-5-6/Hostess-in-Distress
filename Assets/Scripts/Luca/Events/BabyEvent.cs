@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BabyEvent : EventBase
@@ -5,7 +6,11 @@ public class BabyEvent : EventBase
     [SerializeField] private Transform overlapPosition;
     public float overlapArea;
     [SerializeField] private LayerMask interactMask;
+    
+    public string interactText;
 
+    public static event Action<string> OnInteraction;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -48,7 +53,7 @@ public class BabyEvent : EventBase
 
     public override void Solution()
     {
-        
+        OnInteraction?.Invoke(interactText);
     }
 
     private void SolutionWithObject()

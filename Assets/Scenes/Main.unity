@@ -618,63 +618,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7389764692910571144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &459738637
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 344981485140054104, guid: ec8e9ad91a3e41e44adb4547a095595d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.7173
-      objectReference: {fileID: 0}
-    - target: {fileID: 344981485140054104, guid: ec8e9ad91a3e41e44adb4547a095595d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.30183
-      objectReference: {fileID: 0}
-    - target: {fileID: 344981485140054104, guid: ec8e9ad91a3e41e44adb4547a095595d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.09208
-      objectReference: {fileID: 0}
-    - target: {fileID: 344981485140054104, guid: ec8e9ad91a3e41e44adb4547a095595d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 344981485140054104, guid: ec8e9ad91a3e41e44adb4547a095595d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344981485140054104, guid: ec8e9ad91a3e41e44adb4547a095595d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344981485140054104, guid: ec8e9ad91a3e41e44adb4547a095595d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344981485140054104, guid: ec8e9ad91a3e41e44adb4547a095595d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344981485140054104, guid: ec8e9ad91a3e41e44adb4547a095595d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344981485140054104, guid: ec8e9ad91a3e41e44adb4547a095595d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526733163858292371, guid: ec8e9ad91a3e41e44adb4547a095595d, type: 3}
-      propertyPath: m_Name
-      value: AudioListenerRig
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ec8e9ad91a3e41e44adb4547a095595d, type: 3}
 --- !u!224 &598888159 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4449394997419605020, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
@@ -1120,7 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e976c07bd9a0449ba96e234345e590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnInteractable
-  interactable: {fileID: 9161050174588922824, guid: cfbc3704dcba7984d8fe755dd2050dc4, type: 3}
+  interactable: {fileID: 1950103919950248509, guid: 0fb1206d359993240b09705dc2318ee2, type: 3}
   interactableParent: {fileID: 2016401571}
   poolSize: 3
   spawnOffset: 0.25
@@ -1130,6 +1073,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   allowInteract: 0
+  interactText: 
 --- !u!65 &1091309906
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1280,6 +1224,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32638421799003133, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 341333806570313195, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1296,6 +1244,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1763157813}
+    - target: {fileID: 2668780676783058085, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3479890776336541905, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5458094730272123256, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1303,6 +1259,34 @@ PrefabInstance:
     - target: {fileID: 6118970133092800512, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610229290822647241, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610229290822647241, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.4264264
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855185458385271753, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887062972207868935, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887062972207868935, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.4264264
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887062972207868935, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.4264264
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174606017969725560, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7271306090362680262, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
       propertyPath: m_Pivot.x
@@ -1388,6 +1372,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1763157813}
+    - target: {fileID: 8714887795012526195, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1502,7 +1490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9568bcde92656c7439f914622f555bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  mixer: {fileID: 24100000, guid: 0d3235cc8f3b53d4cb0409c458511c9e, type: 2}
+  mixer: {fileID: 24100000, guid: 9b99105ab5a399e4bb7e9d0d5c49e563, type: 2}
 --- !u!1 &1200912622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,6 +1887,7 @@ MonoBehaviour:
   babyClip: {fileID: 8300000, guid: dce7f2bd00488ff4abdd9b2c76be4303, type: 3}
   babyTimeInBetweenAudio: 1
   babyVolume: 0.6
+  babyInteractText: I should probably get a Toy for the Baby
   childTimeBeforeReactivation: 10
   childSolSatisfactionChange: 5
   childSolSanityChange: 5
@@ -1920,6 +1909,7 @@ MonoBehaviour:
   drinkVolume: 0.8
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  drinkInteractText: This passenger seems to want a Drink
   musicPhonePrefab: {fileID: 29439184691655179, guid: c10c8d0ad0c69d24c9eaea07ac36797b, type: 3}
   musicTimeBeforeReactivation: 15
   musicSolSatisfactionChange: 10
@@ -1930,6 +1920,7 @@ MonoBehaviour:
   musicClip: {fileID: 8300000, guid: b4c5f480841a3884f80295490c989e16, type: 3}
   musicTimeInBetweenAudio: 1
   musicVolume: 0.4
+  musicInteractText: The Phone's Music is disturbing the peace
 --- !u!114 &1763157813 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6081887642034050884, guid: 99497f09bdf986148801a89ff7747af0, type: 3}
@@ -2253,6 +2244,7 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 1546572920520002809}
+  passengerHead: {fileID: 8283893637442930359}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -2271,6 +2263,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: I should probably get a Toy for the Baby
 --- !u!4 &52115705006404079
 Transform:
   m_ObjectHideFlags: 0
@@ -3179,6 +3172,7 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 2549579737971502016}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -6449,6 +6443,7 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 1908079352739225932}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -8979,6 +8974,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 1107255418557141978}
+  passengerHead: {fileID: 280966432887292433}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -9002,6 +8998,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 1107255418557141978}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!4 &1412587736827057948
 Transform:
   m_ObjectHideFlags: 0
@@ -9378,6 +9375,7 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 6258816116996944339}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -9473,6 +9471,7 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 4856896914113596924}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -10465,6 +10464,7 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 5520488775892543558}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -10484,6 +10484,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: The Phone's Music is disturbing the peace
 --- !u!23 &1698058537878543179
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11645,6 +11646,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 4850931143456375243}
+  passengerHead: {fileID: 4412882611193787354}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -11668,6 +11670,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 4850931143456375243}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!1 &1918178150379284341
 GameObject:
   m_ObjectHideFlags: 0
@@ -12857,6 +12860,7 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 3306389021917800914}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -13384,6 +13388,7 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 3891167834496742585}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -13403,6 +13408,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: The Phone's Music is disturbing the peace
 --- !u!23 &2225756318547460917
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13581,6 +13587,7 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 270026871441479614}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -13632,6 +13639,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 2766880697454188806}
+  passengerHead: {fileID: 191416723418092427}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -13655,6 +13663,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 2766880697454188806}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!4 &2264495857360577625
 Transform:
   m_ObjectHideFlags: 0
@@ -13956,6 +13965,7 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 4907581184114464447}
+  passengerHead: {fileID: 2812436718245054676}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -13974,6 +13984,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: I should probably get a Toy for the Baby
 --- !u!4 &2363256915222926453
 Transform:
   m_ObjectHideFlags: 0
@@ -14967,6 +14978,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 6313277327145339193}
+  passengerHead: {fileID: 8698041990172928392}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -14990,6 +15002,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 6313277327145339193}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!33 &2521191469714204076
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18551,6 +18564,7 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 5651094353512326361}
+  passengerHead: {fileID: 734044740570509327}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -18569,6 +18583,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: I should probably get a Toy for the Baby
 --- !u!23 &3112112054447294384
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20508,6 +20523,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 7010252509081617931}
+  passengerHead: {fileID: 4643377946019534909}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -20531,6 +20547,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 7010252509081617931}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!1 &3477915879193270053
 GameObject:
   m_ObjectHideFlags: 0
@@ -20911,6 +20928,7 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 2723489731429236816}
+  passengerHead: {fileID: 6602620669161031445}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -20930,6 +20948,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: The Phone's Music is disturbing the peace
 --- !u!23 &3534701387939141763
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22973,6 +22992,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 4659313269917573987}
+  passengerHead: {fileID: 3495730002086092537}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -22996,6 +23016,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 4659313269917573987}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!1 &3877990102498026283
 GameObject:
   m_ObjectHideFlags: 0
@@ -24473,6 +24494,7 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 4294393720718865651}
+  passengerHead: {fileID: 3330121067754429545}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -24491,6 +24513,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: I should probably get a Toy for the Baby
 --- !u!65 &4210078223020390465
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24599,6 +24622,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 4736049888289341968}
+  passengerHead: {fileID: 3435773473023172943}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -24622,6 +24646,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 4736049888289341968}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!64 &4227584214872303524
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25032,6 +25057,7 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 5894983562603914205}
+  passengerHead: {fileID: 1105026547771528872}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -25050,6 +25076,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: I should probably get a Toy for the Baby
 --- !u!1 &4310990823208415315
 GameObject:
   m_ObjectHideFlags: 0
@@ -25269,6 +25296,7 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 4186735637000406295}
+  passengerHead: {fileID: 6963788309829840200}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -25287,6 +25315,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: I should probably get a Toy for the Baby
 --- !u!64 &4355637399982246007
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25872,6 +25901,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 827719448847547437}
+  passengerHead: {fileID: 8974853288148388710}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -25895,6 +25925,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 827719448847547437}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!33 &4466134377790250069
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -26108,6 +26139,7 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 2147758791688366322}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -26127,6 +26159,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: The Phone's Music is disturbing the peace
 --- !u!65 &4511152013106162319
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27727,7 +27760,7 @@ Transform:
   m_GameObject: {fileID: 2225807341554142893}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.75, y: -1.5, z: -0}
+  m_LocalPosition: {x: 0.64, y: -1.5, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30361,6 +30394,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 6746266744994101777}
+  passengerHead: {fileID: 53488576738788986}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -30384,6 +30418,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 6746266744994101777}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!23 &5333683431952241647
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30653,6 +30688,7 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 6894145177334407610}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -33340,6 +33376,7 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 6793521316841339997}
+  passengerHead: {fileID: 1332886068338247419}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -33358,6 +33395,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: I should probably get a Toy for the Baby
 --- !u!1 &5880917466474748064
 GameObject:
   m_ObjectHideFlags: 0
@@ -33464,6 +33502,7 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 8631487662939346375}
+  passengerHead: {fileID: 9221326976596170234}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -33482,6 +33521,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: I should probably get a Toy for the Baby
 --- !u!4 &5894983562603914205
 Transform:
   m_ObjectHideFlags: 0
@@ -40333,6 +40373,7 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 1832099364020475562}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -40446,6 +40487,7 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 6998260865317733602}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -41214,6 +41256,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 4997504150137611944}
+  passengerHead: {fileID: 4290120756104750972}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -41237,6 +41280,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 4997504150137611944}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!4 &7234730213046461882
 Transform:
   m_ObjectHideFlags: 0
@@ -41305,6 +41349,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 4855724134304957345}
+  passengerHead: {fileID: 9082484106237499222}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -41328,6 +41373,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 4855724134304957345}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!33 &7255305442039272849
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42834,7 +42880,7 @@ Transform:
   m_GameObject: {fileID: 1781967213823894534}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.74, y: -1.5, z: -0}
+  m_LocalPosition: {x: -0.67, y: -1.5, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43543,6 +43589,7 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 1770924232049333977}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -43562,6 +43609,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: The Phone's Music is disturbing the peace
 --- !u!114 &7658525827208354308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43690,6 +43738,7 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 7900782804753018450}
+  passengerHead: {fileID: 2229323305619931}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -43709,6 +43758,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: The Phone's Music is disturbing the peace
 --- !u!33 &7679629204315245786
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -44686,6 +44736,7 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 3688218801785194622}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -44705,6 +44756,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: The Phone's Music is disturbing the peace
 --- !u!33 &7833113406202599408
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -44918,6 +44970,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 95366170324353300}
+  passengerHead: {fileID: 2930210335875182255}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -44941,6 +44994,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 95366170324353300}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!33 &7903573499849212783
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -45404,6 +45458,7 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 5239801176329772756}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -45423,6 +45478,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: The Phone's Music is disturbing the peace
 --- !u!136 &7990740828636669029
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -47115,6 +47171,7 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 8034091328263075534}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -47495,6 +47552,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 2061296590755331268}
+  passengerHead: {fileID: 3137348202962835070}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -47518,6 +47576,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 2061296590755331268}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!4 &8354592995583653848
 Transform:
   m_ObjectHideFlags: 0
@@ -47622,6 +47681,7 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 528612926898461691}
+  passengerHead: {fileID: 7573095481916880447}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -47645,6 +47705,7 @@ MonoBehaviour:
   bubblePosition: {fileID: 528612926898461691}
   drink1Bubble: {fileID: 1592381250477492229, guid: 00fdf267a98bbf94fad0b6f83e631b81, type: 3}
   drink2Bubble: {fileID: 7896092496338004713, guid: 949bd3cf2574df64eae8c9cc93824e2d, type: 3}
+  interactText: This passenger seems to want a Drink
 --- !u!23 &8364038654860959515
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47931,6 +47992,7 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 1700405147983847696}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -47950,6 +48012,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: The Phone's Music is disturbing the peace
 --- !u!4 &8406731638074675343
 Transform:
   m_ObjectHideFlags: 0
@@ -48015,6 +48078,7 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 6048420468447603773}
+  passengerHead: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -48034,6 +48098,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: The Phone's Music is disturbing the peace
 --- !u!33 &8450696972879062358
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -49632,7 +49697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e976c07bd9a0449ba96e234345e590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnInteractable
-  interactable: {fileID: 9161050174588922824, guid: cfbc3704dcba7984d8fe755dd2050dc4, type: 3}
+  interactable: {fileID: 1950103919950248509, guid: 0fb1206d359993240b09705dc2318ee2, type: 3}
   interactableParent: {fileID: 2016401571}
   poolSize: 3
   spawnOffset: 0.25
@@ -49642,6 +49707,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   allowInteract: 0
+  interactText: 
 --- !u!65 &8769428056097673607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49723,6 +49789,7 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 2597817652712924264}
+  passengerHead: {fileID: 10721316988293704}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -49741,6 +49808,7 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 128
+  interactText: I should probably get a Toy for the Baby
 --- !u!4 &8801277981946208614
 Transform:
   m_ObjectHideFlags: 0
@@ -52713,4 +52781,3 @@ SceneRoots:
   - {fileID: 45383070}
   - {fileID: 938809389}
   - {fileID: 420476475}
-  - {fileID: 459738637}

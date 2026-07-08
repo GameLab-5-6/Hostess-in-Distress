@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,12 +10,10 @@ public class AudioManager : MonoBehaviour
 
     public const string MASTER_VOLUME_KEY = "MasterVolume";
     public const string SFX_VOLUME_KEY = "SFXVolume";
-    public const string MUSIC_VOLUME_KEY = "MusicVolume";
+    public const string BG_VOLUME_KEY = "BgVolume";
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        
         if (Instance != null)
         {
             Destroy(this);
@@ -28,37 +25,33 @@ public class AudioManager : MonoBehaviour
 
     private void OnEnable()
     {
-        MainMenuUI.OnPrefsUpdated += UpdateVolumeMixer;
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        VolumeSettings.OnPrefsUpdated += UpdateVolumeMixer;
     }
 
     private void OnDisable()
     {
-        MainMenuUI.OnPrefsUpdated -= UpdateVolumeMixer;
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        VolumeSettings.OnPrefsUpdated -= UpdateVolumeMixer;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void Start()
     {
         LoadVolumes();
     }
 
-    private void LoadVolumes()
+    public void LoadVolumes()
     {
         float masterVolume = PlayerPrefs.GetFloat(MASTER_VOLUME_KEY, 0.5f);
         float sfxVolume = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, 0.5f);
-        float musicVolume = PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY, 0.5f);
+        float musicVolume = PlayerPrefs.GetFloat(BG_VOLUME_KEY, 0.5f);
         
         mixer.SetFloat(MASTER_VOLUME_KEY, Mathf.Log10(masterVolume) * 20);
         mixer.SetFloat(SFX_VOLUME_KEY, Mathf.Log10(sfxVolume) * 20);
-        mixer.SetFloat(MUSIC_VOLUME_KEY, Mathf.Log10(musicVolume) * 20);
+        mixer.SetFloat(BG_VOLUME_KEY, Mathf.Log10(musicVolume) * 20);
     }
 
     public void UpdateVolumeMixer(string key, float volume)
     {
-        PlayerPrefs.SetFloat(key, volume);
-
-        LoadVolumes();
+        mixer.SetFloat(key, Mathf.Log10(volume) * 20);
     }
 
     public void PlaySFX2D(AudioClip clip, float volume)

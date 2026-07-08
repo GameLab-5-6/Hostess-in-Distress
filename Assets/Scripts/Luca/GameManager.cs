@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float drainRate = 0.25f;
     [SerializeField] private int activeEvents = 0;
 
+    [SerializeField] private float luggageDrainRate = 0.5f;
+    [SerializeField] private int activeLuggageEvents = 0;
+
     [Header("Game Settings")] 
     public float totalGameTime = 300f;
     private float timer;
@@ -32,6 +35,8 @@ public class GameManager : MonoBehaviour
         EventBase.OnUpdateActiveEvents += UpdateActiveEvents;
         EventBase.OnEventSolution += UpdateBarValues;
         EventBase.OnEventKnockout += UpdateBarValues;
+
+        LuggageEvent.OnUpdateLuggageEvents += UpdateLuggageEvents;
     }
 
     private void OnDisable()
@@ -42,6 +47,8 @@ public class GameManager : MonoBehaviour
         EventBase.OnUpdateActiveEvents -= UpdateActiveEvents;
         EventBase.OnEventSolution -= UpdateBarValues;
         EventBase.OnEventKnockout -= UpdateBarValues;
+        
+        LuggageEvent.OnUpdateLuggageEvents -= UpdateLuggageEvents;
     }
 
     private void Start()
@@ -57,9 +64,12 @@ public class GameManager : MonoBehaviour
         StatusCheck();
         
         currentSanity -= Time.deltaTime * drainRate * activeEvents;
+        currentSatisfaction -= Time.deltaTime * luggageDrainRate * activeLuggageEvents;
     }
     
     private void UpdateActiveEvents(int amount) => activeEvents += amount;
+    
+    private void UpdateLuggageEvents(int amount) => activeLuggageEvents += amount;
 
     private void UpdateBarValues(float satisfaction, float sanity)
     {

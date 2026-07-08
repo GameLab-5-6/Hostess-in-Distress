@@ -45,8 +45,8 @@ public class EventManagerEditor : Editor
                 baby.solutionVolume = eventManager.solutionVolume;
                 baby.koClip = eventManager.koClip;
                 baby.koVolume = eventManager.koVolume;
-                baby.exclamationPoint = eventManager.exclamationPoint;
                 baby.timeInBetweenAudio = eventManager.babyTimeInBetweenAudio;
+                baby.interactText = eventManager.babyInteractText;
                 
                 baby.timeBeforeReactivation = eventManager.babyTimeBeforeReactivation;
                 baby.solSatisfactionChange = eventManager.babySolSatisfactionChange;
@@ -88,8 +88,8 @@ public class EventManagerEditor : Editor
                 drink.solutionVolume = eventManager.solutionVolume;
                 drink.koClip = eventManager.koClip;
                 drink.koVolume = eventManager.koVolume;
-                drink.exclamationPoint = eventManager.exclamationPoint;
                 drink.timeInBetweenAudio = eventManager.drinkTimeInBetweenAudio;
+                drink.interactText = eventManager.drinkInteractText;
                 
                 drink.timeBeforeReactivation = eventManager.drinkTimeBeforeReactivation;
                 drink.solSatisfactionChange = eventManager.drinkSolSatisfactionChange;
@@ -116,6 +116,7 @@ public class EventManagerEditor : Editor
                 music.koVolume = eventManager.koVolume;
                 music.exclamationPoint = eventManager.exclamationPoint;
                 music.timeInBetweenAudio = eventManager.musicTimeInBetweenAudio;
+                music.interactText = eventManager.musicInteractText;
                 
                 music.phonePrefab = eventManager.musicPhonePrefab;
                 music.timeBeforeReactivation = eventManager.musicTimeBeforeReactivation;

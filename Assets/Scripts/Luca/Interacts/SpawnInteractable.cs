@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class SpawnInteractable : MonoBehaviour, IInteractable
 {
@@ -17,6 +19,10 @@ public class SpawnInteractable : MonoBehaviour, IInteractable
     public bool allowInteract = true;
 
     private InteractablePooler<ObjectGrabbing> interactablePooler;
+    
+    [SerializeField] private string interactText;
+    
+    public static event Action<string> OnFailedInteraction;
     
     private void Awake()
     {
@@ -52,7 +58,7 @@ public class SpawnInteractable : MonoBehaviour, IInteractable
 
             if (!allowInteract)
             {
-                //UI message to get close to passenger
+                OnFailedInteraction?.Invoke(interactText);
                 return;
             }
         }

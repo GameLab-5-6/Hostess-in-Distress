@@ -5,7 +5,7 @@ public static class InputManager
 {
     private static InputActions inputs;
 
-    public static event Action OnInteraction, OnPunchCharge, OnPunchRelease;
+    public static event Action OnInteraction, OnPunchCharge, OnPunchRelease, OnMinGrab, OnMaxGrab;
     public static event Action OnPauseRequested, OnResumeRequested;
     public static Action OnPauseAllowed, OnResumeAllowed;
 
@@ -22,6 +22,9 @@ public static class InputManager
         inputs.UI.Resume.performed += _ => OnResumeRequested?.Invoke();
         OnPauseAllowed += SwitchTo_UI;
         OnResumeAllowed += SwitchTo_PlayerInput;
+
+        inputs.Player.MinGrab.performed += _ => OnMinGrab?.Invoke();
+        inputs.Player.MaxGrab.performed += _ => OnMaxGrab?.Invoke();
     }
     
     public static Vector2 GetMovementVector => inputs.Player.Movement.ReadValue<Vector2>();

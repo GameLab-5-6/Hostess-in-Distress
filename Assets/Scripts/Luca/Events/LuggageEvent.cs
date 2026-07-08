@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ public class LuggageEvent : MonoBehaviour, ILuggage
     public float solutionVolume;
 
     private bool isActive;
+
+    public static event Action<int> OnUpdateLuggageEvents;
     
     private void Start()
     {
@@ -61,6 +64,8 @@ public class LuggageEvent : MonoBehaviour, ILuggage
         luggage.layer = LayerMask.NameToLayer("Interactable");
 
         StartCoroutine(MoveLuggageStart(targetPos, 1f));
+        
+        OnUpdateLuggageEvents?.Invoke(1);
     }
     
     public void FixLuggage()
@@ -68,6 +73,8 @@ public class LuggageEvent : MonoBehaviour, ILuggage
         Vector3 targetPos = origin;
 
         StartCoroutine(MoveLuggageSolved(targetPos, 1f));
+        
+        OnUpdateLuggageEvents?.Invoke(-1);
     }
 
     private IEnumerator MoveLuggageStart(Vector3 targetPos, float time)

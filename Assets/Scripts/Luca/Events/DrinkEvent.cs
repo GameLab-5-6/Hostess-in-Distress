@@ -17,9 +17,12 @@ public class DrinkEvent : EventBase
 
     private int randomDrink;
     private ObjectType drinkType;
+
+    public string interactText;
     
     public static event Action<int> OnUpdateActiveEvents;
     public static event Action<float, float> OnEventFail;
+    public static event Action<string> OnInteraction;
     
     protected override void Awake()
     {
@@ -99,7 +102,7 @@ public class DrinkEvent : EventBase
 
     public override void Solution()
     {
-        
+        OnInteraction?.Invoke(interactText);
     }
 
     public override void Knockout()

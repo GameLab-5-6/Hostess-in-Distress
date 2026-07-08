@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject losePanel;
 
     [SerializeField] private TMP_Text interactPrompt;
+    [SerializeField] private float interactPromptTime = 3f;
+    private float elapsedInteractTime;
     //[SerializeField] private TMP_Text eventPrompt;
     [SerializeField] private Image sanityBar;
     [SerializeField] private Image satisfactionBar;
@@ -38,6 +40,7 @@ public class UIManager : MonoBehaviour
         interactPrompt.gameObject.SetActive(false);
         //eventPrompt.gameObject.SetActive(false);
         
+        elapsedInteractTime = interactPromptTime;
         elapsedGameTime = 0f;
     }
 
@@ -47,6 +50,11 @@ public class UIManager : MonoBehaviour
         GameManager.OnResume += HidePausePanel;
         GameManager.OnGameWin += OpenWinPanel;
         GameManager.OnGameLose += OpenLosePanel;
+        
+        BabyEvent.OnInteraction += ActivateInteractPrompt;
+        MusicEvent.OnInteraction += ActivateInteractPrompt;
+        DrinkEvent.OnInteraction += ActivateInteractPrompt;
+        SpawnInteractable.OnFailedInteraction += ActivateInteractPrompt;
     }
 
     private void OnDisable()
@@ -55,6 +63,11 @@ public class UIManager : MonoBehaviour
         GameManager.OnResume -= HidePausePanel;
         GameManager.OnGameWin -= OpenWinPanel;
         GameManager.OnGameLose -= OpenLosePanel;
+        
+        BabyEvent.OnInteraction -= ActivateInteractPrompt;
+        MusicEvent.OnInteraction -= ActivateInteractPrompt;
+        DrinkEvent.OnInteraction -= ActivateInteractPrompt;
+        SpawnInteractable.OnFailedInteraction -= ActivateInteractPrompt;
     }
 
     private void Update()
@@ -63,8 +76,16 @@ public class UIManager : MonoBehaviour
         satisfactionBar.fillAmount = gm.currentSatisfaction / gm.maxSatisfaction;
         chargeBar.fillAmount = pi.chargeAmount / pi.chargeTime;
 
-        if (pi.currentInteractable != null)
+        // if (pi.currentInteractable != null)
+        //     interactPrompt.gameObject.SetActive(true);
+        // else
+        //     interactPrompt.gameObject.SetActive(false);
+
+        if (elapsedInteractTime <= interactPromptTime)
+        {
+            elapsedInteractTime += Time.deltaTime;
             interactPrompt.gameObject.SetActive(true);
+        }
         else
             interactPrompt.gameObject.SetActive(false);
 
@@ -75,6 +96,12 @@ public class UIManager : MonoBehaviour
         
         elapsedGameTime += Time.deltaTime;
         planeImage.transform.position = Vector3.Lerp(pointA.position, pointB.position, elapsedGameTime / gm.totalGameTime);
+    }
+
+    private void ActivateInteractPrompt(string text)
+    {
+        interactPrompt.text = text;
+        elapsedInteractTime = 0f;
     }
 
     private void OpenPausePanel()

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3355629211741598280}
   - component: {fileID: 4237750935804536523}
   - component: {fileID: 2716020971077173794}
+  - component: {fileID: 4828070156878492336}
   m_Layer: 7
   m_Name: Phone
   m_TagString: Untagged
@@ -128,6 +129,28 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!95 &4828070156878492336
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29439184691655179}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 85eca6e74ddb39e41aa6f08b5f2fcbd1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1817275439217339568
 GameObject:
   m_ObjectHideFlags: 0

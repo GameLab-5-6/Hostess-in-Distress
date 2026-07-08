@@ -39,8 +39,17 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
     {
         interactDelay = 0f;
         canInteract = false;
+        
+        InputManager.OnMinGrab += SetMinDistance;
+        InputManager.OnMaxGrab += SetMaxDistance;
     }
-    
+
+    private void OnDisable()
+    {
+        InputManager.OnMinGrab -= SetMinDistance;
+        InputManager.OnMaxGrab -= SetMaxDistance;
+    }
+
     private void Start()
     {
         if (objectType == ObjectType.Cart)
@@ -102,6 +111,9 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
             HandleRotation();
         }
     }
+    
+    private void SetMinDistance() => distanceOnInteract = minDistance;
+    private void SetMaxDistance() => distanceOnInteract = maxDistance;
 
     private void HandlePosition()
     {
@@ -181,6 +193,11 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
                 rb.constraints = RigidbodyConstraints.None;
                 isInEvent = false;
                 interactDelay = 0f;
+
+                if (TryGetComponent(out Animator anim))
+                {
+                    anim.SetBool("isActive", false);
+                }
             }
         }
     }

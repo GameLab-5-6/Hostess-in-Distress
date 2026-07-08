@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MusicEvent : EventBase
@@ -8,6 +9,10 @@ public class MusicEvent : EventBase
     [SerializeField] private Transform overlapPosition;
     public float overlapArea;
     [SerializeField] private LayerMask interactMask;
+    
+    public string interactText;
+
+    public static event Action<string> OnInteraction;
     
     protected override void Awake()
     {
@@ -39,6 +44,13 @@ public class MusicEvent : EventBase
                     if (obj.objectType == ObjectType.Phone)
                     {
                         hasPhone = true;
+
+                        phonePrefab.TryGetComponent<IInteractable>(out IInteractable interact);
+                        if (PlayerInteract.Instance.currentInteractable != interact)
+                        {
+                            obj.outline.OutlineColor = Color.red;
+                            obj.outline.enabled = true;
+                        }
                     }
                 }
             }
@@ -60,6 +72,12 @@ public class MusicEvent : EventBase
             obj.isInEvent = true;
             obj.rb.constraints = RigidbodyConstraints.FreezePosition;
         }
+
+        if (phonePrefab.TryGetComponent<Animator>(out Animator anim))
+        {
+            anim.SetBool("isActive", true);
+        }
+        
         hasPhone = true;
         
         base.Activate();
@@ -67,7 +85,7 @@ public class MusicEvent : EventBase
 
     public override void Solution()
     {
-        
+        OnInteraction?.Invoke(interactText);
     }
 
     private void SolutionWithObject()
