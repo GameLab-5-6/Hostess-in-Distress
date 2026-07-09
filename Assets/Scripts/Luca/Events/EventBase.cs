@@ -12,17 +12,18 @@ public abstract class EventBase : MonoBehaviour, IEventable
     protected float timer;
     public GameObject exclamationPoint;
     [SerializeField] protected Transform exclamationSpawnPosition;
-    [SerializeField] private bool followPlayerOnEvent;
-    [SerializeField] private GameObject passengerHead;
-    protected Quaternion startHeadRotation;
-    [SerializeField] private Transform targetKoTransform;
+    public bool followPlayerOnEvent;
+    public GameObject passengerHead;
+    public Transform targetKoTransform;
     
     [Header("Solution")]
     public float solSatisfactionChange;
     public float solSanityChange;
+    public float lerpTimeSol = 1f;
     [Header("Knockout")]
     public float koSatisfactionChange;
     public float koSanityChange;
+    public float lerpTimeKnockout = 0.25f;
 
     [Header("Audio")] 
     public GameObject clipPrefab;
@@ -63,8 +64,6 @@ public abstract class EventBase : MonoBehaviour, IEventable
         isActive = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
         outline.enabled = false;
-        
-        startHeadRotation = passengerHead.transform.rotation;
     }
     
     protected virtual void Update()
@@ -81,10 +80,23 @@ public abstract class EventBase : MonoBehaviour, IEventable
                 Activate();
                 timer = 0f;
             }
+
+            if (!followPlayerOnEvent)
+            {
+                Vector3 targetLook = Camera.main.transform.position - passengerHead.transform.position;
+
+                float angle = Vector3.Angle(Vector3.forward, targetLook);
+                float clamp = Mathf.Clamp(angle, -90f, 90f);
+
+                Vector3 clampedTarget =
+                    Vector3.RotateTowards(Vector3.forward, targetLook, clamp * Mathf.Deg2Rad, Mathf.Infinity);
+
+                passengerHead.transform.rotation = Quaternion.LookRotation(clampedTarget, Vector3.up);
+            }
         }
         else
         {
-            if (passengerHead != null || followPlayerOnEvent)
+            if (passengerHead != null && followPlayerOnEvent)
             {
                 Vector3 targetLook = Camera.main.transform.position - passengerHead.transform.position;
 
@@ -150,7 +162,7 @@ public abstract class EventBase : MonoBehaviour, IEventable
         OnUpdateActiveEvents?.Invoke(-1);
         OnEventSolution?.Invoke(solSatisfactionChange, solSanityChange);
         
-        StartCoroutine(LerpHead(1f, startHeadRotation, passengerHead.transform.position));
+        StartCoroutine(LerpHead(lerpTimeSol, Quaternion.identity, passengerHead.transform.position));
     }
 
     public virtual void Knockout()
@@ -170,7 +182,7 @@ public abstract class EventBase : MonoBehaviour, IEventable
         OnUpdateActiveEvents?.Invoke(-1);
         OnEventKnockout?.Invoke(koSatisfactionChange, koSanityChange);
         
-        StartCoroutine(LerpHead(2f, targetKoTransform.rotation, targetKoTransform.position));
+        StartCoroutine(LerpHead(lerpTimeKnockout, targetKoTransform.rotation, targetKoTransform.position));
     }
 
     private IEnumerator LerpHead(float time, Quaternion targetRot, Vector3 targetPos)

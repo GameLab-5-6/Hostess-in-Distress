@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class BabyEvent : EventBase
@@ -6,6 +7,9 @@ public class BabyEvent : EventBase
     [SerializeField] private Transform overlapPosition;
     public float overlapArea;
     [SerializeField] private LayerMask interactMask;
+
+    [SerializeField] private GameObject babyHead;
+    [SerializeField] private Transform targetBabyKoTransform;
     
     public string interactText;
 
@@ -64,6 +68,27 @@ public class BabyEvent : EventBase
     public override void Knockout()
     {
         base.Knockout();
+        
+        StartCoroutine(LerpBabyHead(0.25f, targetBabyKoTransform.rotation, targetBabyKoTransform.position));
+    }
+    
+    private IEnumerator LerpBabyHead(float time, Quaternion targetRot, Vector3 targetPos)
+    {
+        Quaternion startRot = babyHead.transform.rotation;
+        Vector3 startPos = babyHead.transform.position;
+        
+        float elapsedTime = 0f;
+
+        while (elapsedTime < time)
+        {
+            babyHead.transform.rotation = Quaternion.Slerp(startRot, targetRot, elapsedTime / time);
+            babyHead.transform.position = Vector3.Lerp(startPos, targetPos, elapsedTime / time);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        
+        babyHead.transform.rotation = targetRot;
+        babyHead.transform.position = targetPos;
     }
     
     // private void OnDrawGizmos()

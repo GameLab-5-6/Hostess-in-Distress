@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ObjectGrabbing : MonoBehaviour, IInteractable
@@ -27,6 +28,8 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
     [SerializeField] private float decayRate;
     private float decayTimer;
     [HideInInspector] public bool isInEvent = false;
+
+    public static event Action<bool> OnInteract;
 
     private void Awake()
     {
@@ -182,6 +185,8 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
                 rb.useGravity = true;
                 rb.freezeRotation = false;
             }
+
+            OnInteract?.Invoke(isInteracting);
         }
         else
         {
@@ -198,6 +203,8 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
                 {
                     anim.SetBool("isActive", false);
                 }
+
+                OnInteract?.Invoke(isInteracting);
             }
         }
     }

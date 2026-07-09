@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -30,6 +31,9 @@ public class PlayerInteract : MonoBehaviour
     public float chargeTime = 1f;
     public float chargeAmount;
 
+    private bool hasInteract;
+    public static event Action<string> OnHoverInteract;
+
     private void Awake()
     {
         if (Instance != null)
@@ -46,6 +50,8 @@ public class PlayerInteract : MonoBehaviour
         InputManager.OnInteraction += HandleInteraction;
         InputManager.OnPunchCharge += StartPunch;
         InputManager.OnPunchRelease += HandlePunch;
+
+        ObjectGrabbing.OnInteract += ChangeInteractStatus;
     }
     
     private void OnDisable()
@@ -53,6 +59,8 @@ public class PlayerInteract : MonoBehaviour
         InputManager.OnInteraction -= HandleInteraction;
         InputManager.OnPunchCharge -= StartPunch;
         InputManager.OnPunchRelease -= HandlePunch;
+        
+        ObjectGrabbing.OnInteract -= ChangeInteractStatus;
     }
 
     private void Start()
@@ -60,6 +68,8 @@ public class PlayerInteract : MonoBehaviour
         isCharging = false;
         chargeAmount = 0f;
         hammer.SetActive(false);
+
+        hasInteract = false;
     }
     
     private void Update()
@@ -73,6 +83,8 @@ public class PlayerInteract : MonoBehaviour
             chargeAmount = Mathf.Clamp(chargeAmount, 0f, chargeTime);
         }
     }
+
+    private void ChangeInteractStatus(bool isInteracting) => hasInteract = isInteracting;
     
     private void CheckForInteractables()
     {
@@ -89,6 +101,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 outlineFalse.enabled = false;
                 lastInteractable = null;
+                OnHoverInteract?.Invoke("");
             }
 
             return;
@@ -103,6 +116,23 @@ public class PlayerInteract : MonoBehaviour
                 if (lastInteractable.TryGetComponent(out Outline lastOutline))
                     lastOutline.enabled = false;
             }
+
+            if (hits[0].collider.TryGetComponent(out SpawnInteractable spawn))
+            {
+                OnHoverInteract?.Invoke("E = spawn object");
+            }
+
+            if (hits[0].collider.TryGetComponent(out ObjectGrabbing objectGrabbing))
+            {
+                if (objectGrabbing.isInteracting)
+                {
+                    OnHoverInteract?.Invoke("MouseScroll = change grab distance | Q = min distance | R = max distance | E = Let go of object");
+                }
+                else
+                {
+                    OnHoverInteract?.Invoke("E = interact");
+                }
+            }
             
             //Outlines
             if (hits[0].collider.TryGetComponent(out Outline outlineTrue))
@@ -116,6 +146,9 @@ public class PlayerInteract : MonoBehaviour
     
     private void CheckForEventables()
     {
+        if (hasInteract)
+            return;
+        
         Ray ray = new Ray(cam.position, cam.forward);
         RaycastHit[] hits = Physics.RaycastAll(ray, maxInteractDistance, eventMask);
 
@@ -129,6 +162,8 @@ public class PlayerInteract : MonoBehaviour
             {
                 outlineFalse.enabled = false;
                 lastEventable = null;
+                if (currentInteractable == null)
+                    OnHoverInteract?.Invoke("");
             }
             
             return;
@@ -137,6 +172,7 @@ public class PlayerInteract : MonoBehaviour
         if (hits[0].collider.TryGetComponent(out IEventable eventable))
         {
             currentEventable = eventable;
+            
             //Outlines
             if (hits[0].collider.TryGetComponent(out EventBase eventBase))
             {
@@ -144,6 +180,7 @@ public class PlayerInteract : MonoBehaviour
                 {
                     lastEventable = hits[0].collider.gameObject;
                     outlineTrue.enabled = true;
+                    OnHoverInteract?.Invoke("E = interact | Hold Left Click = knockout");
                 }
             }
         }

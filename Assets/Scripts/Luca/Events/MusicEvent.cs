@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class MusicEvent : EventBase
@@ -9,6 +10,8 @@ public class MusicEvent : EventBase
     [SerializeField] private Transform overlapPosition;
     public float overlapArea;
     [SerializeField] private LayerMask interactMask;
+
+    private Vector3 startHeadPosition;
     
     public string interactText;
 
@@ -22,6 +25,8 @@ public class MusicEvent : EventBase
     protected override void Start()
     {
         base.Start();
+        
+        startHeadPosition = passengerHead.transform.position;
 
         phonePrefab = Instantiate(phonePrefab, overlapPosition.position, Quaternion.identity, transform);
         phonePrefab.SetActive(false);
@@ -80,6 +85,9 @@ public class MusicEvent : EventBase
         
         hasPhone = true;
         
+        StartCoroutine(DelayHeadRotation());
+        passengerHead.transform.position = targetKoTransform.position;
+        
         base.Activate();
     }
 
@@ -91,12 +99,19 @@ public class MusicEvent : EventBase
     private void SolutionWithObject()
     {
         base.Solution();
+        passengerHead.transform.position = startHeadPosition;
     }
 
     public override void Knockout()
     {
         base.Knockout();
         phonePrefab.SetActive(false);
+    }
+
+    private IEnumerator DelayHeadRotation()
+    {
+        yield return new WaitForEndOfFrame();
+        passengerHead.transform.rotation = targetKoTransform.rotation;
     }
     
     // private void OnDrawGizmos()

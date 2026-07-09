@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7345265960262812039}
   - component: {fileID: 8852877985472299379}
+  - component: {fileID: 270729289449444414}
+  - component: {fileID: 5321563361042957236}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -48,6 +50,10 @@ MonoBehaviour:
   pausePanel: {fileID: 0}
   winPanel: {fileID: 0}
   losePanel: {fileID: 0}
+  selectionPanel: {fileID: 0}
+  volumePanel: {fileID: 0}
+  tutorialPanel: {fileID: 0}
+  keybindPrompt: {fileID: 0}
   interactPrompt: {fileID: 0}
   interactPromptTime: 3
   sanityBar: {fileID: 0}
@@ -56,3 +62,36 @@ MonoBehaviour:
   planeImage: {fileID: 0}
   pointA: {fileID: 0}
   pointB: {fileID: 0}
+--- !u!114 &270729289449444414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5791508611461628445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 345d5563fc30f94438ed24b9292a2859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VolumeSettings
+  mainSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  bgSlider: {fileID: 0}
+  testSfx: {fileID: 8300000, guid: 2d270b2e715a1b847bbd000bd9271d2c, type: 3}
+  testSfxVolume: 1
+--- !u!114 &5321563361042957236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5791508611461628445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ce30b479225c94aa8e2c4a0696e522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialUI
+  previousPanel: {fileID: 0}
+  tutorialPanel: {fileID: 0}
+  page1: {fileID: 0}
+  page2: {fileID: 0}

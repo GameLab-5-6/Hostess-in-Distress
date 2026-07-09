@@ -1,3 +1,6 @@
+using System.Collections;
+using UnityEngine;
+
 public class ChildEvent : EventBase
 {
     protected override void Awake()
@@ -18,6 +21,8 @@ public class ChildEvent : EventBase
     public override void Activate()
     {
         base.Activate();
+
+        StartCoroutine(DelayHeadRotation());
     }
 
     public override void Solution()
@@ -30,6 +35,11 @@ public class ChildEvent : EventBase
         base.Knockout();
     }
 
+    private IEnumerator DelayHeadRotation()
+    {
+        yield return new WaitForEndOfFrame();
+        passengerHead.transform.rotation = Quaternion.identity;
+    }
 
     // private Outline outline;
     //

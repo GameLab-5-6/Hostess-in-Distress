@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject selectionPanel;
     [SerializeField] private GameObject volumePanel;
+    [SerializeField] private GameObject tutorialPanel;
+
+    [SerializeField] private TMP_Text keybindPrompt;
 
     [SerializeField] private TMP_Text interactPrompt;
     [SerializeField] private float interactPromptTime = 3f;
@@ -41,6 +44,7 @@ public class UIManager : MonoBehaviour
         winPanel.SetActive(false);
         losePanel.SetActive(false);
         interactPrompt.gameObject.SetActive(false);
+        keybindPrompt.gameObject.SetActive(false);
         
         selectionPanel.gameObject.SetActive(true);
         volumePanel.gameObject.SetActive(false);
@@ -56,6 +60,8 @@ public class UIManager : MonoBehaviour
         GameManager.OnResume += HidePausePanel;
         GameManager.OnGameWin += OpenWinPanel;
         GameManager.OnGameLose += OpenLosePanel;
+
+        PlayerInteract.OnHoverInteract += ActivateKeybindPrompt;
         
         BabyEvent.OnInteraction += ActivateInteractPrompt;
         MusicEvent.OnInteraction += ActivateInteractPrompt;
@@ -69,6 +75,8 @@ public class UIManager : MonoBehaviour
         GameManager.OnResume -= HidePausePanel;
         GameManager.OnGameWin -= OpenWinPanel;
         GameManager.OnGameLose -= OpenLosePanel;
+
+        PlayerInteract.OnHoverInteract -= ActivateKeybindPrompt;
         
         BabyEvent.OnInteraction -= ActivateInteractPrompt;
         MusicEvent.OnInteraction -= ActivateInteractPrompt;
@@ -110,6 +118,12 @@ public class UIManager : MonoBehaviour
         elapsedInteractTime = 0f;
     }
 
+    private void ActivateKeybindPrompt(string text)
+    {
+        keybindPrompt.text = text;
+        keybindPrompt.gameObject.SetActive(true);
+    }
+
     private void OpenPausePanel()
     {
         pausePanel.SetActive(true);
@@ -129,6 +143,7 @@ public class UIManager : MonoBehaviour
     {
         selectionPanel.SetActive(true);
         volumePanel.SetActive(false);
+        tutorialPanel.SetActive(false);
     }
     
     private void HidePausePanel()
@@ -136,6 +151,7 @@ public class UIManager : MonoBehaviour
         pausePanel.SetActive(false);
         selectionPanel.SetActive(true);
         volumePanel.SetActive(false);
+        tutorialPanel.SetActive(false);
         
         gamePanel.SetActive(true);
     }

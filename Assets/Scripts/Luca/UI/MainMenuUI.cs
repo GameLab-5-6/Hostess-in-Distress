@@ -43,12 +43,6 @@ public class MainMenuUI : MonoBehaviour
         settingsPanel.SetActive(true);
         mainMenuPanel.SetActive(false);
     }
-
-    public void OpenTutorial()
-    {
-        tutorialPanel.SetActive(true);
-        mainMenuPanel.SetActive(false);
-    }
     
     public void ReturnToMainMenu()
     {
