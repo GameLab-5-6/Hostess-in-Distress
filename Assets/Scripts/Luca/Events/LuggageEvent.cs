@@ -20,6 +20,7 @@ public class LuggageEvent : MonoBehaviour, ILuggage
     private bool isActive;
 
     public static event Action<int> OnUpdateLuggageEvents;
+    public static event Action<bool> OnLuggageFixed;
     
     private void Start()
     {
@@ -75,6 +76,8 @@ public class LuggageEvent : MonoBehaviour, ILuggage
         StartCoroutine(MoveLuggageSolved(targetPos, 1f));
         
         OnUpdateLuggageEvents?.Invoke(-1);
+        
+        OnLuggageFixed?.Invoke(false);
     }
 
     private IEnumerator MoveLuggageStart(Vector3 targetPos, float time)

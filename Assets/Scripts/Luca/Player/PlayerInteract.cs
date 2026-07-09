@@ -52,6 +52,7 @@ public class PlayerInteract : MonoBehaviour
         InputManager.OnPunchRelease += HandlePunch;
 
         ObjectGrabbing.OnInteract += ChangeInteractStatus;
+        LuggageEvent.OnLuggageFixed += ChangeInteractStatus;
     }
     
     private void OnDisable()
@@ -61,6 +62,7 @@ public class PlayerInteract : MonoBehaviour
         InputManager.OnPunchRelease -= HandlePunch;
         
         ObjectGrabbing.OnInteract -= ChangeInteractStatus;
+        LuggageEvent.OnLuggageFixed -= ChangeInteractStatus;
     }
 
     private void Start()

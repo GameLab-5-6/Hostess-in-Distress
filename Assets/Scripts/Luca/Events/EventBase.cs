@@ -175,12 +175,12 @@ public abstract class EventBase : MonoBehaviour, IEventable
         if (exclamationPoint != null)
             exclamationPoint.SetActive(false);
         
+        OnUpdateActiveEvents?.Invoke(-1);
+        OnEventKnockout?.Invoke(koSatisfactionChange, koSanityChange);
+        
         StopAudio();
         
         AudioManager.Instance.PlaySFX2D(koClip, koVolume);
-        
-        OnUpdateActiveEvents?.Invoke(-1);
-        OnEventKnockout?.Invoke(koSatisfactionChange, koSanityChange);
         
         StartCoroutine(LerpHead(lerpTimeKnockout, targetKoTransform.rotation, targetKoTransform.position));
     }

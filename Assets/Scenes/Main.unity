@@ -1827,6 +1827,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1954741951349981908, guid: b906f83dbdd44ab40acc96d081ccb1b8, type: 3}
+      propertyPath: m_ControllerManager.Controllers.Array.data[0].Input.Gain
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954741951349981908, guid: b906f83dbdd44ab40acc96d081ccb1b8, type: 3}
+      propertyPath: m_ControllerManager.Controllers.Array.data[1].Input.Gain
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5430687484957855204, guid: b906f83dbdd44ab40acc96d081ccb1b8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2295,33 +2303,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2104014769}
     - target: {fileID: 4367523266110640627, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4367523266110640627, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4367523266110640627, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2104014770}
-    - target: {fileID: 4367523266110640627, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4367523266110640627, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenTutorialPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4367523266110640627, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TutorialUI, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4367523266110640627, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5458094730272123256, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4111,7 +4095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyEvent
   timeBeforeReactivation: 20
-  exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
+  exclamationPoint: {fileID: 6303525188584339996, guid: 845c337a3706a5e43ac22c9c91db7353, type: 3}
   exclamationSpawnPosition: {fileID: 1546572920520002809}
   followPlayerOnEvent: 1
   passengerHead: {fileID: 8283893637442930359}
@@ -15899,7 +15883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyEvent
   timeBeforeReactivation: 20
-  exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
+  exclamationPoint: {fileID: 6303525188584339996, guid: 845c337a3706a5e43ac22c9c91db7353, type: 3}
   exclamationSpawnPosition: {fileID: 4907581184114464447}
   followPlayerOnEvent: 1
   passengerHead: {fileID: 2812436718245054676}
@@ -20515,7 +20499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyEvent
   timeBeforeReactivation: 20
-  exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
+  exclamationPoint: {fileID: 6303525188584339996, guid: 845c337a3706a5e43ac22c9c91db7353, type: 3}
   exclamationSpawnPosition: {fileID: 5651094353512326361}
   followPlayerOnEvent: 1
   passengerHead: {fileID: 734044740570509327}
@@ -22893,7 +22877,7 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 2723489731429236816}
-  followPlayerOnEvent: 1
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 6602620669161031445}
   targetKoTransform: {fileID: 1308498027}
   solSatisfactionChange: 10
@@ -26465,7 +26449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyEvent
   timeBeforeReactivation: 20
-  exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
+  exclamationPoint: {fileID: 6303525188584339996, guid: 845c337a3706a5e43ac22c9c91db7353, type: 3}
   exclamationSpawnPosition: {fileID: 4294393720718865651}
   followPlayerOnEvent: 1
   passengerHead: {fileID: 3330121067754429545}
@@ -27038,7 +27022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyEvent
   timeBeforeReactivation: 20
-  exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
+  exclamationPoint: {fileID: 6303525188584339996, guid: 845c337a3706a5e43ac22c9c91db7353, type: 3}
   exclamationSpawnPosition: {fileID: 5894983562603914205}
   followPlayerOnEvent: 1
   passengerHead: {fileID: 1105026547771528872}
@@ -27283,7 +27267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyEvent
   timeBeforeReactivation: 20
-  exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
+  exclamationPoint: {fileID: 6303525188584339996, guid: 845c337a3706a5e43ac22c9c91db7353, type: 3}
   exclamationSpawnPosition: {fileID: 4186735637000406295}
   followPlayerOnEvent: 1
   passengerHead: {fileID: 6963788309829840200}
@@ -35388,7 +35372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyEvent
   timeBeforeReactivation: 20
-  exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
+  exclamationPoint: {fileID: 6303525188584339996, guid: 845c337a3706a5e43ac22c9c91db7353, type: 3}
   exclamationSpawnPosition: {fileID: 6793521316841339997}
   followPlayerOnEvent: 1
   passengerHead: {fileID: 1332886068338247419}
@@ -35520,7 +35504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyEvent
   timeBeforeReactivation: 20
-  exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
+  exclamationPoint: {fileID: 6303525188584339996, guid: 845c337a3706a5e43ac22c9c91db7353, type: 3}
   exclamationSpawnPosition: {fileID: 8631487662939346375}
   followPlayerOnEvent: 1
   passengerHead: {fileID: 9221326976596170234}
@@ -51894,7 +51878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyEvent
   timeBeforeReactivation: 20
-  exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
+  exclamationPoint: {fileID: 6303525188584339996, guid: 845c337a3706a5e43ac22c9c91db7353, type: 3}
   exclamationSpawnPosition: {fileID: 2597817652712924264}
   followPlayerOnEvent: 1
   passengerHead: {fileID: 10721316988293704}
