@@ -173,7 +173,7 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
             
                 rb.useGravity = false;
                 rb.freezeRotation = true;
-                distanceOnInteract = Vector3.Distance(transform.position, Camera.main.transform.position);
+                distanceOnInteract = minDistance;
             }
             else
             {
@@ -198,6 +198,8 @@ public class ObjectGrabbing : MonoBehaviour, IInteractable
                 rb.constraints = RigidbodyConstraints.None;
                 isInEvent = false;
                 interactDelay = 0f;
+                
+                distanceOnInteract = minDistance;
 
                 if (TryGetComponent(out Animator anim))
                 {
