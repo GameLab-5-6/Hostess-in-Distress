@@ -78,6 +78,21 @@ public class PlayerInteract : MonoBehaviour
     {
         Ray ray = new Ray(cam.position, cam.forward);
         RaycastHit[] hits = Physics.RaycastAll(ray, maxInteractDistance, interactMask);
+
+        if (hits.Length <= 0)
+        {
+            currentInteractable = null;
+            
+            if (lastInteractable == null)
+                return;
+            if (lastInteractable.TryGetComponent(out Outline outlineFalse))
+            {
+                outlineFalse.enabled = false;
+                lastInteractable = null;
+            }
+
+            return;
+        }
         
         if (hits[0].collider.TryGetComponent(out IInteractable interactable))
         {
@@ -95,20 +110,7 @@ public class PlayerInteract : MonoBehaviour
                 lastInteractable = hits[0].collider.gameObject;
                 outlineTrue.OutlineColor = Color.white;
                 outlineTrue.enabled = true;
-                return;
             }
-        }
-        else
-        {
-            currentInteractable = null;
-        }
-        
-        if (lastInteractable == null)
-            return;
-        if (lastInteractable.TryGetComponent(out Outline outlineFalse))
-        {
-            outlineFalse.enabled = false;
-            lastInteractable = null;
         }
     }
     
@@ -116,6 +118,21 @@ public class PlayerInteract : MonoBehaviour
     {
         Ray ray = new Ray(cam.position, cam.forward);
         RaycastHit[] hits = Physics.RaycastAll(ray, maxInteractDistance, eventMask);
+
+        if (hits.Length <= 0)
+        {
+            currentEventable = null;
+            
+            if (lastEventable == null)
+                return;
+            if (lastEventable.TryGetComponent(out Outline outlineFalse))
+            {
+                outlineFalse.enabled = false;
+                lastEventable = null;
+            }
+            
+            return;
+        }
         
         if (hits[0].collider.TryGetComponent(out IEventable eventable))
         {
@@ -127,21 +144,8 @@ public class PlayerInteract : MonoBehaviour
                 {
                     lastEventable = hits[0].collider.gameObject;
                     outlineTrue.enabled = true;
-                    return;
                 }
             }
-        }
-        else
-        {
-            currentEventable = null;
-        }
-        
-        if (lastEventable == null)
-            return;
-        if (lastEventable.TryGetComponent(out Outline outlineFalse))
-        {
-            outlineFalse.enabled = false;
-            lastEventable = null;
         }
     }
     

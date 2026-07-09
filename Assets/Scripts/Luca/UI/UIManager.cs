@@ -12,6 +12,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject losePanel;
 
+    [SerializeField] private GameObject selectionPanel;
+    [SerializeField] private GameObject volumePanel;
+
     [SerializeField] private TMP_Text interactPrompt;
     [SerializeField] private float interactPromptTime = 3f;
     private float elapsedInteractTime;
@@ -33,11 +36,14 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        gamePanel.gameObject.SetActive(true);
-        pausePanel.gameObject.SetActive(false);
-        winPanel.gameObject.SetActive(false);
-        losePanel.gameObject.SetActive(false);
+        gamePanel.SetActive(true);
+        pausePanel.SetActive(false);
+        winPanel.SetActive(false);
+        losePanel.SetActive(false);
         interactPrompt.gameObject.SetActive(false);
+        
+        selectionPanel.gameObject.SetActive(true);
+        volumePanel.gameObject.SetActive(false);
         //eventPrompt.gameObject.SetActive(false);
         
         elapsedInteractTime = interactPromptTime;
@@ -106,14 +112,32 @@ public class UIManager : MonoBehaviour
 
     private void OpenPausePanel()
     {
-        pausePanel.gameObject.SetActive(true);
-        gamePanel.gameObject.SetActive(false);
+        pausePanel.SetActive(true);
+        selectionPanel.SetActive(true);
+        volumePanel.SetActive(false);
+        
+        gamePanel.SetActive(false);
     }
 
+    public void OpenSettingsPanel()
+    {
+        selectionPanel.SetActive(false);
+        volumePanel.SetActive(true);
+    }
+
+    public void ReturnToSelectionPanel()
+    {
+        selectionPanel.SetActive(true);
+        volumePanel.SetActive(false);
+    }
+    
     private void HidePausePanel()
     {
-        pausePanel.gameObject.SetActive(false);
-        gamePanel.gameObject.SetActive(true);
+        pausePanel.SetActive(false);
+        selectionPanel.SetActive(true);
+        volumePanel.SetActive(false);
+        
+        gamePanel.SetActive(true);
     }
 
     private void OpenWinPanel()

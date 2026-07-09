@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
@@ -11,7 +12,10 @@ public abstract class EventBase : MonoBehaviour, IEventable
     protected float timer;
     public GameObject exclamationPoint;
     [SerializeField] protected Transform exclamationSpawnPosition;
+    [SerializeField] private bool followPlayerOnEvent;
     [SerializeField] private GameObject passengerHead;
+    protected Quaternion startHeadRotation;
+    [SerializeField] private Transform targetKoTransform;
     
     [Header("Solution")]
     public float solSatisfactionChange;
@@ -59,6 +63,8 @@ public abstract class EventBase : MonoBehaviour, IEventable
         isActive = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
         outline.enabled = false;
+        
+        startHeadRotation = passengerHead.transform.rotation;
     }
     
     protected virtual void Update()
@@ -78,7 +84,7 @@ public abstract class EventBase : MonoBehaviour, IEventable
         }
         else
         {
-            if (passengerHead != null)
+            if (passengerHead != null || followPlayerOnEvent)
             {
                 Vector3 targetLook = Camera.main.transform.position - passengerHead.transform.position;
 
@@ -132,6 +138,7 @@ public abstract class EventBase : MonoBehaviour, IEventable
     {
         isActive = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
+        outline.enabled = false;
         
         if (exclamationPoint != null)
             exclamationPoint.SetActive(false);
@@ -142,6 +149,8 @@ public abstract class EventBase : MonoBehaviour, IEventable
         
         OnUpdateActiveEvents?.Invoke(-1);
         OnEventSolution?.Invoke(solSatisfactionChange, solSanityChange);
+        
+        StartCoroutine(LerpHead(1f, startHeadRotation, passengerHead.transform.position));
     }
 
     public virtual void Knockout()
@@ -149,6 +158,7 @@ public abstract class EventBase : MonoBehaviour, IEventable
         canActivate = false;
         isActive = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
+        outline.enabled = false;
         
         if (exclamationPoint != null)
             exclamationPoint.SetActive(false);
@@ -159,5 +169,26 @@ public abstract class EventBase : MonoBehaviour, IEventable
         
         OnUpdateActiveEvents?.Invoke(-1);
         OnEventKnockout?.Invoke(koSatisfactionChange, koSanityChange);
+        
+        StartCoroutine(LerpHead(2f, targetKoTransform.rotation, targetKoTransform.position));
+    }
+
+    private IEnumerator LerpHead(float time, Quaternion targetRot, Vector3 targetPos)
+    {
+        Quaternion startRot = passengerHead.transform.rotation;
+        Vector3 startPos = passengerHead.transform.position;
+        
+        float elapsedTime = 0f;
+
+        while (elapsedTime < time)
+        {
+            passengerHead.transform.rotation = Quaternion.Slerp(startRot, targetRot, elapsedTime / time);
+            passengerHead.transform.position = Vector3.Lerp(startPos, targetPos, elapsedTime / time);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        
+        passengerHead.transform.rotation = targetRot;
+        passengerHead.transform.position = targetPos;
     }
 }

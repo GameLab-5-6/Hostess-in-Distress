@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 4879635650410647278}
   - component: {fileID: 1950103919950248509}
   - component: {fileID: 2586995646811523129}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Peluche
   m_TagString: Untagged
   m_Icon: {fileID: 0}

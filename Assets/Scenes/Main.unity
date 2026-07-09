@@ -750,6 +750,118 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2292658339965519146}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &782988258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782988259}
+  - component: {fileID: 782988262}
+  - component: {fileID: 782988261}
+  - component: {fileID: 782988260}
+  m_Layer: 7
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782988259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782988258}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.58047, y: 52.2, z: 0.57875144}
+  m_LocalScale: {x: 6.25, y: 11.44, z: 6.44271}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1381666938}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &782988260
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782988258}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &782988261
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782988258}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 424f4b4b7e848b04b92bb3c55db10eed, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &782988262
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782988258}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &835978003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,6 +1297,11 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!1 &1094045030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2668780676783058085, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+  m_PrefabInstance: {fileID: 1113180774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1108478169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,10 +1341,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 32638421799003133, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 341333806570313195, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1244,14 +1357,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1763157813}
-    - target: {fileID: 2668780676783058085, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3479890776336541905, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 2175415963482540807, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2104014769}
     - target: {fileID: 5458094730272123256, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1259,34 +1368,6 @@ PrefabInstance:
     - target: {fileID: 6118970133092800512, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6610229290822647241, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6610229290822647241, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.4264264
-      objectReference: {fileID: 0}
-    - target: {fileID: 6855185458385271753, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6887062972207868935, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6887062972207868935, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.4264264
-      objectReference: {fileID: 0}
-    - target: {fileID: 6887062972207868935, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.4264264
-      objectReference: {fileID: 0}
-    - target: {fileID: 7174606017969725560, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7271306090362680262, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
       propertyPath: m_Pivot.x
@@ -1368,14 +1449,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8022241239320775921, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2104014769}
     - target: {fileID: 8133053254557186006, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1763157813}
-    - target: {fileID: 8714887795012526195, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1655,6 +1736,11 @@ Transform:
   - {fileID: 1146644590}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1381666938 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8545869932200975231, guid: dbb91b76ff33a2449972bfd4a0920449, type: 3}
+  m_PrefabInstance: {fileID: 8337396981605618754}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1506022950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,6 +2018,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e547f412477dc74aafad0115e5b6df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+--- !u!1 &1906521693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3479890776336541905, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
+  m_PrefabInstance: {fileID: 1113180774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2016401570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2062,9 +2153,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2075617712}
     - target: {fileID: 8852877985472299379, guid: ba3354df26ddf164d879ca34f764cda9, type: 3}
+      propertyPath: volumePanel
+      value: 
+      objectReference: {fileID: 1906521693}
+    - target: {fileID: 8852877985472299379, guid: ba3354df26ddf164d879ca34f764cda9, type: 3}
       propertyPath: interactPrompt
       value: 
       objectReference: {fileID: 1113180779}
+    - target: {fileID: 8852877985472299379, guid: ba3354df26ddf164d879ca34f764cda9, type: 3}
+      propertyPath: selectionPanel
+      value: 
+      objectReference: {fileID: 1094045030}
     - target: {fileID: 8852877985472299379, guid: ba3354df26ddf164d879ca34f764cda9, type: 3}
       propertyPath: satisfactionBar
       value: 
@@ -2079,6 +2178,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7345265960262812039, guid: ba3354df26ddf164d879ca34f764cda9, type: 3}
   m_PrefabInstance: {fileID: 2104014767}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2104014769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8852877985472299379, guid: ba3354df26ddf164d879ca34f764cda9, type: 3}
+  m_PrefabInstance: {fileID: 2104014767}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0981c8fd7e3fae47b911db7f468596e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
 --- !u!1 &2105956417 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8207167936661202636, guid: 48471d5106ce56240b713c7e2000d401, type: 3}
@@ -2244,7 +2354,9 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 1546572920520002809}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 8283893637442930359}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -3172,7 +3284,9 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 2549579737971502016}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -6443,7 +6557,9 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 1908079352739225932}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -8974,7 +9090,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 1107255418557141978}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 280966432887292433}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -9375,7 +9493,9 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 6258816116996944339}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -9471,7 +9591,9 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 4856896914113596924}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -10464,7 +10586,9 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 5520488775892543558}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -11646,7 +11770,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 4850931143456375243}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 4412882611193787354}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -12860,7 +12986,9 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 3306389021917800914}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -13388,7 +13516,9 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 3891167834496742585}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -13587,7 +13717,9 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 270026871441479614}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -13639,7 +13771,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 2766880697454188806}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 191416723418092427}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -13965,7 +14099,9 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 4907581184114464447}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 2812436718245054676}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -14978,7 +15114,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 6313277327145339193}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 8698041990172928392}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -18564,7 +18702,9 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 5651094353512326361}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 734044740570509327}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -20523,7 +20663,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 7010252509081617931}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 4643377946019534909}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -20928,7 +21070,9 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 2723489731429236816}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 6602620669161031445}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -22992,7 +23136,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 4659313269917573987}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 3495730002086092537}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -24494,7 +24640,9 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 4294393720718865651}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 3330121067754429545}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -24622,7 +24770,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 4736049888289341968}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 3435773473023172943}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -25057,7 +25207,9 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 5894983562603914205}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 1105026547771528872}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -25296,7 +25448,9 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 4186735637000406295}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 6963788309829840200}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -25901,7 +26055,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 827719448847547437}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 8974853288148388710}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -26139,7 +26295,9 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 2147758791688366322}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -30394,7 +30552,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 6746266744994101777}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 53488576738788986}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -30688,7 +30848,9 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 6894145177334407610}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -33376,7 +33538,9 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 6793521316841339997}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 1332886068338247419}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -33502,7 +33666,9 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 8631487662939346375}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 9221326976596170234}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -40373,7 +40539,9 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 1832099364020475562}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -40487,7 +40655,9 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 6998260865317733602}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -41256,7 +41426,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 4997504150137611944}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 4290120756104750972}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -41349,7 +41521,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 4855724134304957345}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 9082484106237499222}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -43589,7 +43763,9 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 1770924232049333977}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -43738,7 +43914,9 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 7900782804753018450}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 2229323305619931}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -44736,7 +44914,9 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 3688218801785194622}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -44970,7 +45150,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 95366170324353300}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 2930210335875182255}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -45458,7 +45640,9 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 5239801176329772756}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -47171,7 +47355,9 @@ MonoBehaviour:
   timeBeforeReactivation: 10
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 8034091328263075534}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 5
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -47412,9 +47598,16 @@ PrefabInstance:
       propertyPath: interactableParent
       value: 
       objectReference: {fileID: 1525266057}
+    - target: {fileID: 8296215716809973750, guid: dbb91b76ff33a2449972bfd4a0920449, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 62.78
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8545869932200975231, guid: dbb91b76ff33a2449972bfd4a0920449, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 782988259}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbb91b76ff33a2449972bfd4a0920449, type: 3}
 --- !u!4 &8339534995189948537
@@ -47552,7 +47745,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 2061296590755331268}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 3137348202962835070}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -47681,7 +47876,9 @@ MonoBehaviour:
   timeBeforeReactivation: 40
   exclamationPoint: {fileID: 0}
   exclamationSpawnPosition: {fileID: 528612926898461691}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 7573095481916880447}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
@@ -47992,7 +48189,9 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 1700405147983847696}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -48078,7 +48277,9 @@ MonoBehaviour:
   timeBeforeReactivation: 15
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 6048420468447603773}
+  followPlayerOnEvent: 0
   passengerHead: {fileID: 0}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -15
@@ -49789,7 +49990,9 @@ MonoBehaviour:
   timeBeforeReactivation: 20
   exclamationPoint: {fileID: 1566158265707127578, guid: 33fba4bae77def94db300a8134215c63, type: 3}
   exclamationSpawnPosition: {fileID: 2597817652712924264}
+  followPlayerOnEvent: 1
   passengerHead: {fileID: 10721316988293704}
+  targetKoTransform: {fileID: 0}
   solSatisfactionChange: 10
   solSanityChange: 5
   koSatisfactionChange: -20
